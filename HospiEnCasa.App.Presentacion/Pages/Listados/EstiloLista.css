@@ -1,0 +1,35 @@
+.titulo {
+    color: #34B48F;
+    font-family: Verdana;
+}
+.botonFiltrar {
+background-color: #34B48F;
+font-family: Verdana;
+border-radius: 6px;
+border: none;
+color: white;
+cursor: pointer;
+font-size: 15px;
+padding: 5px 10px;
+text-align: center;
+}
+.encabezado {
+    font-family: Verdana;
+    text-align: center;
+    border: black 1px solid;
+    border-collapse: collapse;
+}
+.contenido {
+    font-family: Verdana;
+    border: black 1px solid;
+    border-collapse: collapse;
+}
+.verMas {
+    font-family: Verdana;
+    color: #34B48F;
+}
+.tabla {
+    width: 100%;
+    border: black 1px solid;
+    border-collapse: collapse;
+}

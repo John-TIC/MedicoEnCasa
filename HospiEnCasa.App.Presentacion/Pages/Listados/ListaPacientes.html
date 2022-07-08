@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de pacientes</title>
+    <link rel="stylesheet" href="EstiloLista.css">
+</head>
+<body>
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <h2 class="titulo">Listado completo de pacientes</h2>
+            </td>
+            <td style="text-align: right;">
+                <label style="font-family: Verdana;">Filtrar por genero: <input list="generos" name="filtroGenero"/></label>
+                <datalist id="generos">
+                    <option value="Masculino">
+                    <option value="Femenino">
+                </datalist>
+                <a class="botonFiltrar" title="Filtrar">
+                    <span class="dashicons dashicons-admin-generic"></span>Filtrar
+                </a>
+            </td>
+        </tr>
+    </table>
+    <table class="tabla">
+        <tr>
+            <td class="encabezado"><b>Nombre</b></td>
+            <td class="encabezado"><b>Apellidos</b></td>
+            <td class="encabezado"><b>Teléfono</b></td>
+            <td class="encabezado"><b>Genero</b></td>
+            <td class="encabezado"><b>Ciudad</b></td>
+            <td class="encabezado"><b>Familiar</b></td>
+            <td class="encabezado"><b>Medico</b></td>
+            <td class="encabezado"><b>Enfermera</b></td>
+            <td class="encabezado"><b>Ver más</b></td>
+        </tr>
+        <tr>
+            <td class="contenido">Santiago</td>
+            <td class="contenido">Acevedo</td>
+            <td class="contenido">3103103131</td>
+            <td class="contenido">Masculino</td>
+            <td class="contenido">Bogotá</td>
+            <td class="contenido">Sofia</td>
+            <td class="contenido">Julián</td>
+            <td class="contenido">Consuelo</td>
+            <td class="contenido" style="text-align: center;"><a class="verMas" href="http://google.com">Ver más</a></td>
+        </tr>
+        <tr>
+            <td class="contenido">René</td>
+            <td class="contenido">Arrieta</td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido" style="text-align: center;"><a class="verMas" href="http://google.com">Ver más</a></td>
+        </tr>
+        <tr>
+            <td class="contenido">John</td>
+            <td class="contenido">Ovalle</td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido" style="text-align: center;"><a class="verMas" href="http://google.com">Ver más</a></td>
+        </tr>
+        <tr>
+            <td class="contenido">Carlos</td>
+            <td class="contenido">Arroyo</td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido" style="text-align: center;"><a class="verMas" href="http://google.com">Ver más</a></td>
+        </tr>
+        <tr>
+            <td class="contenido">Michaell</td>
+            <td class="contenido">Mendoza</td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido"></td>
+            <td class="contenido" style="text-align: center;"><a class="verMas" href="http://google.com">Ver más</a></td>
+        </tr>
+    </table>
+    <table style="width: 100%; text-align: center;">
+        <tr>
+            <td style="text-align: right;">
+                <a class="botonFiltrar" title="Filtrar">
+                    <span class="dashicons dashicons-admin-generic"></span>Anterior
+                </a>
+            </td>
+            <td style="width: 10%;">
+                <h4 class="titulo">Pagina 1 de 2</h4>
+            </td>
+            <td style="text-align: left;">
+                <a class="botonFiltrar" title="Filtrar">
+                    <span class="dashicons dashicons-admin-generic"></span>Siguiente
+                </a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
