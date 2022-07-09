@@ -16,12 +16,13 @@
 .encabezado {
     font-family: Verdana;
     text-align: center;
-    border: black 1px solid;
+    border: #34B48F 1px solid;
     border-collapse: collapse;
+    background-color: #78DFC1;
 }
 .contenido {
     font-family: Verdana;
-    border: black 1px solid;
+    border: #34B48F 1px solid;
     border-collapse: collapse;
 }
 .verMas {
