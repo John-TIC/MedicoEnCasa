@@ -1,0 +1,132 @@
+/* ************************* */
+/* Seteo general */
+*{
+    font-size: 15px;
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+  }
+
+/* ************************* */
+/* Variables */
+:root{
+    --hospital-green: #34B48F;
+    --very-light-pink: #746e6e;
+    --text-input-field: #F7F7F7;
+    --blue-flor: #0b358f;
+    --green-flor: #03553c;
+    --red-flor: #984aac;
+    --white: #FFFFFF;
+    --black: #000000;
+    --nav-link-noactive :rgba(0,0,0,.55);
+    --nav-link-active :rgba(0,0,0,.9);
+}
+
+/* ************************* */
+/* Estilos personalizados */
+.logo{
+    color: var(--hospital-green);
+}
+
+.name-avatar{
+    font-size: 0.7rem;
+    color: var(--hospital-green);
+}
+
+.img-perfil{
+    width: 20rem;
+    border-radius: 50%;
+    padding: 2rem 0rem 2rem 2rem;
+}
+
+.icon-view{
+    color: var(--red-flor);
+}
+
+.icon-edit{
+    color: var(--blue-flor);
+}
+
+.icon-signal{
+    color: var(--green-flor);
+}
+
+.icon-edit{
+    color: var(--blue-flor);
+}
+
+.name-app{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: oblique;
+    font-size: 1.5rem;
+    padding-left: 4px;
+    color: var(--hospital-green);
+}
+
+.title-section{
+    color: var(--hospital-green);
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#mimapa {
+    height: 35rem;
+    width: 100%;
+}
+
+/* ************************* */
+/* Modificacion Bootstrap */
+
+/* table */
+.table{
+    --bs-table-striped-bg: rgba(52, 182, 143, 0.05);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(52, 182, 143, 0.25);
+
+    border-color: var(--hospital-green)
+}
+
+.table>:not(:first-child) {
+    border-top: 2px solid var(--hospital-green);
+
+}
+
+.table thead{
+    color: var(--very-light-pink);
+}
+
+/* breadcrumb */
+.breadcrumb li a {
+    color: var(--hospital-green);
+}
+
+.breadcrumb .page-link{
+    border: 1px solid var(--hospital-green);
+    color: var(--very-light-pink);
+}
+
+.breadcrumb .page-link:hover{
+    background-color: rgba(52, 182, 143, 0.25);
+    color: #212529;
+}
+
+/* form */
+.form-control, .form-select{
+    border: 1px solid var(--hospital-green);
+}
+
+.form-label {
+    color: var(--very-light-pink);
+}
+
+/* nav submenu */
+.nav .nav-link{
+    color: var(--nav-link-noactive);
+}
+.nav .nav-link.active{
+    color: var(--nav-link-active);
+}
+

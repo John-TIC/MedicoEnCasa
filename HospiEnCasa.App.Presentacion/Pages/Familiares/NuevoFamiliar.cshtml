@@ -1,0 +1,108 @@
+﻿@page
+@model HospiEnCasa.App.Presentacion.Pages.NuevoFamiliarModel
+@{
+}
+
+    <!-- Start Ppal Sections -->
+    <div class="d-flex flex-lg-row flex-column mt-5">
+      <!-- Start Submenu vertical -->
+      <aside class="col-lg-2 pt-5 ps-3 bg-light">
+        <div class="container">
+          <nav id="nav-second" class="navbar navbar-light bg-light">
+            <ul class="nav flex-lg-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Medicos/NuevoMedico">Registrar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Otra opcion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Otra opcion</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <!-- End Submenu vertical -->
+
+      <!-- Start Main section -->
+      <main class="container-fluid pt-5">
+        <!-- Start Breadcrumb section -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a></li>
+            <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Paciente">Paciente</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Nuevo Familiar
+            </li>
+          </ol>
+        </nav>
+        <!-- End Breadcrumb section -->
+        <!-- Start Content section -->
+        <section class="">
+          <!-- Start Title and form search section -->
+          <div class="container pb-4">
+            <h1 class="title-section">Nuevo Familiar</h1>
+            <form class="">
+              <fieldset class="row g-3 py-3">
+                <div class="col-12">
+                  <label for="inputPaciente" class="form-label">Paciente a Cuidar</label>
+                  <input class="form-control rea" type="text" id="inputPaciente" value="45345123 : Pepito Perez" readonly>
+                </div>
+              </fieldset>
+              <fieldset class="row g-3 py-3">
+                <div class="col-lg-6">
+                  <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
+                  <input class="form-control" type="file" id="inputAvatar">
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputIdentificacion" class="form-label">Identificacion</label>
+                  <input class="form-control" type="text" id="inputIdentificacion" required>
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputNombres" class="form-label">Nombres</label>
+                  <input type="text" class="form-control" id="inputNombres" required/>
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputApellidos" class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="inputApellidos" required/>
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputTelefono" class="form-label">Telefono</label>
+                  <input type="tel" class="form-control" id="inputTelefono" required/>
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputGenero" class="form-label">Genero</label>
+                  <select id="inputGenero" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="row g-3 py-3">
+                <div class="col-lg-6">
+                  <label for="inputEspecialidad" class="form-label">Parentesco</label>
+                  <input type="text" class="form-control" id="inputEspecialidad" required/>
+                </div>
+                <div class="col-lg-6">
+                  <label for="inputRethus" class="form-label">E-Mail</label>
+                  <input type="email" class="form-control" id="inputRethus" required/>
+                </div>
+              </fieldset>
+              <div class="d-flex justify-content-end py-3">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+              </div>
+            </form>
+          </div>
+          <!-- End Title and form search section -->
+        </section>
+        <!-- Start Content section -->
+      </main>
+      <!-- End Main section -->
+    </div>
+    <!-- End Ppal Sections -->
+
