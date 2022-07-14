@@ -26,8 +26,9 @@ namespace HospiEnCasa.App.Presentacion
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            // services.AddSingleton<IRepositorioPaciente, RepositorioPaciente>();
-            
+
+            // Servicio IRespositorioPaciente 
+            services.AddSingleton<IRepositorioPaciente>(new RepositorioPaciente(new HospiEnCasa.App.Persistencia.AppContext()));
             
         }
 

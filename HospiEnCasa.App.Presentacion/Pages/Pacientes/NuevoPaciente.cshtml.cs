@@ -18,23 +18,31 @@ namespace HospiEnCasa.App.Presentacion.Pages
         public Paciente Paciente { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
-        // private readonly IRepositorioPaciente _repositorioPaciente;
+        private readonly IRepositorioPaciente _repositorioPaciente;
 
-        public NuevoPacienteModel(ILogger<IndexModel> logger)
+        public NuevoPacienteModel(ILogger<IndexModel> logger, IRepositorioPaciente repositorioPaciente)
         {
             _logger = logger;
-            // _repositorioPaciente = repositorioPaciente;
+            _repositorioPaciente = repositorioPaciente;
         }
 
         public void OnGet()
         {
-            _logger.LogInformation("About page visited at {DTS}",
-            DateTime.UtcNow.ToLongTimeString());
+            _logger.LogInformation("Get method", DateTime.UtcNow.ToLongTimeString());
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
-            // _repositorioPaciente.AddPaciente(Paciente);
+
+            _logger.LogInformation("Get method", DateTime.UtcNow.ToLongTimeString());
+
+            Paciente nuevoPaciente = _repositorioPaciente.AddPaciente(Paciente);
+
+            if(nuevoPaciente == null){
+                return RedirectToPage("Error");
+            }
+
+            return Page();
         }
     }
 }
