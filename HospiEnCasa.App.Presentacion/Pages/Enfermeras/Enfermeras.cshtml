@@ -1,0 +1,367 @@
+﻿@page
+@model HospiEnCasa.App.Presentacion.Pages.EnfermerasModel
+@{
+}
+
+    <!-- Start Ppal Sections -->
+    <div class="d-flex flex-lg-row flex-column mt-5">
+      <!-- Start Submenu vertical -->
+      <aside class="col-lg-2 pt-5 ps-3 bg-light">
+        <div class="container">
+          <nav id="nav-second" class="navbar navbar-light bg-light">
+            <ul class="nav flex-lg-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Otra opcion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Otra opcion</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <!-- End Submenu vertical -->
+
+      <!-- Start Main section -->
+      <main class="container-fluid pt-5">
+        <!-- Start Breadcrumb section -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Enfermeras
+            </li>
+          </ol>
+        </nav>
+        <!-- End Breadcrumb section -->
+        <!-- Start Content section -->
+        <section>
+          <!-- Start Title and form search section -->
+          <div class="d-flex justify-content-between align-items-center pb-4">
+            <h1 class="title-section">Listado de Enfermeras</h1>
+            <form class="row row-cols-lg-auto g-3">
+              <div class="col-auto">
+                <label class="visually-hidden" for="specificCriteriaType"
+                  >Criterio</label
+                >
+                <select class="form-select" id="specificCriteriaType">
+                  <option selected>Choose...</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <label class="visually-hidden" for="specificCriteria"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="specificCriteria"
+                  placeholder="Por nombre?"
+                />
+              </div>
+              <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+              </div>
+            </form>
+          </div>
+          <!-- End Title and form search section -->
+          <!-- Start Table section -->
+          <table
+            class="table table-striped table-hover align-middle caption-top text-center"
+          >
+            <thead>
+              <th>Identificacion</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Telefono</th>
+              <th>Direccion</th>
+              <th>Accion</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a title="Ver" asp-area="" asp-page="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-solid fa-pen-to-square icon-edit" title="Editar"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal" title="Signos"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+                <td>Data 4</td>
+                <td>Data 5</td>
+                <td>
+                  <a href="#">
+                    <i class="fa-solid fa-eye icon-view"></i>
+                  </a>
+                  <a href="#"
+                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
+                  ></a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- End Table section -->
+          <!-- Start Pagination table section -->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Pagination table section -->
+        </section>
+        <!-- Start Content section -->
+      </main>
+      <!-- End Main section -->
+    </div>
+    <!-- End Ppal Sections -->
+
+

@@ -59,7 +59,8 @@ namespace HospiEnCasa.App.Persistencia
             var familiarEncontrado = _appContext.FamiliaresDesignados.FirstOrDefault(f => f.Id == familiar.Id);
             if (familiarEncontrado != null)
             {
-                familiarEncontrado.Nombre = familiar.Nombre;
+                familiarEncontrado.Identificacion = familiar.Identificacion;
+                familiarEncontrado.Nombres = familiar.Nombres;
                 familiarEncontrado.Apellidos = familiar.Apellidos;
                 familiarEncontrado.NumeroTelefono = familiar.NumeroTelefono;
                 familiarEncontrado.Genero = familiar.Genero;

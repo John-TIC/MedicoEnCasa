@@ -1,10 +1,54 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="d-flex flex-lg-row flex-column mt-5">
+      <!-- Start Submenu vertical -->
+      <aside class="col-lg-2 pt-5 bg-light">
+        <div class="container">
+          <nav id="nav-second" class="navbar navbar-light bg-light">
+            <ul class="nav flex-lg-column">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Otra opcion</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Otra opcion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Otra opcion</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Otra opcion</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+      <!-- End Submenu vertical -->
+
+      <!-- Start Main section -->
+      <div class="container-fluid pt-5">
+        <!-- Start Breadcrumb section -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-itemactive" aria-current="page">Home</li>
+          </ol>
+        </nav>
+        <!-- End Breadcrumb section -->
+        <!-- Start Content section -->
+        <section class="">
+          <!-- Start Title and form search section -->
+          <div class="container pb-4">
+            <h1 class="title-section">Ubicacion Pacientes</h1>
+            <div id="mimapa"></div>
+          </div>
+          <!-- End Title and form search section -->
+        </section>
+        <!-- Start Content section -->
+      </div>
+      <!-- End Main section -->
+    </div>

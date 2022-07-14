@@ -59,7 +59,8 @@ namespace HospiEnCasa.App.Persistencia
             var medicoEncontrado = _appContext.Medicos.FirstOrDefault(m => m.Id == medico.Id);
             if (medicoEncontrado != null)
             {
-                medicoEncontrado.Nombre = medico.Nombre;
+                medicoEncontrado.Identificacion = medico.Identificacion;
+                medicoEncontrado.Nombres = medico.Nombres;
                 medicoEncontrado.Apellidos = medico.Apellidos;
                 medicoEncontrado.NumeroTelefono = medico.NumeroTelefono;
                 medicoEncontrado.Genero = medico.Genero;

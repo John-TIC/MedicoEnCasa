@@ -54,7 +54,10 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Identificacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombres")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NumeroTelefono")

@@ -3,52 +3,135 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - HospiEnCasa.App.Presentacion</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="~/css/EstiloFormulario.css">
-    <link rel="stylesheet" href="~/css/EstiloLista.css">
+    <title>@ViewData["Title"]</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="~/lib/leaflet/leaflet.css"/>
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.min.css"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true"/>
 </head>
+  <!-- Start Body section -->
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Medico en casa</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Formularios/FormularioPaciente">Registrar Paciente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Formularios/FormularioFamiliarDesignado">Registrar Familiar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Formularios/FormularioMedico">Registrar Médico</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Formularios/FormularioConsultaPaciente">Buscar Paciente</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Listados/ListadoPaciente">Listado de Pacientes</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <!-- Start Header sections -->
+    <header class="p-0 mb-3 border-bottom bg-light fixed-top">
+      <!-- Header, Nav sections -->
+      <nav id="nav-ppal" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" asp-area="" asp-page="/Index">
+            <i class="fa-solid fa-truck-medical fa-lg logo"></i>
+            <span class="name-app">Medico en Casa</span>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerHeader"
+            aria-controls="navbarTogglerHeader"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerHeader">
+            <!-- Header lado izquierdo -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Medicos/Medicos">Medicos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-page="/Enfermeras/Enfermeras">Enfermeras</a>
+              </li>
+            </ul>
+
+            <!-- Header lado derecho -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <span class="pe-3 name-avatar">Pepito Perez</span>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="d-block link-dark text-decoration-none dropdown-toggle"
+                  href="#"
+                  role="button"
+                  id="dropdownUser"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="~/avatar/johansson.png"
+                    alt=""
+                    width="30"
+                    height="30"
+                    class="nav-linkd-inline-block align-text-top"
+                    style="border-radius: 50%"
+                  />
+                </a>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="dropdownUser"
+                >
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <!-- End Header sections -->
+
+    <div class="container-fluid p-0 m-0">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
+    <!-- Start Footer section -->
+    <div class="container-fluid">
+      <footer
+        class="d-flex justify-content-between align-items-center py-3 px-3 border-top"
+      >
+        <p class="col-md-4 mb-0 text-muted">&copy; 2022 Medical ACME, Inc</p>
+
+        <a
+          href="#"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+        >
+          <i class="fa-solid fa-truck-medical fa-xl logo"></i>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">About</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- End Footer section -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/fontawesome/js/all.min.js"></script>
+	  <script src="~/lib/leaflet/leaflet.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/script-map.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
