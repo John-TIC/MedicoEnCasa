@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
 using HospiEnCasa.App.Dominio;
+using HospiEnCasa.App.Persistencia;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -17,11 +18,12 @@ namespace HospiEnCasa.App.Presentacion.Pages
         public Paciente Paciente { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
+        // private readonly IRepositorioPaciente _repositorioPaciente;
 
         public NuevoPacienteModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
-
+            // _repositorioPaciente = repositorioPaciente;
         }
 
         public void OnGet()
@@ -32,8 +34,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public void OnPost()
         {
-            _logger.LogInformation("About page visited at {DT}",
-                        DateTime.UtcNow.ToLongTimeString());
+            // _repositorioPaciente.AddPaciente(Paciente);
         }
     }
 }

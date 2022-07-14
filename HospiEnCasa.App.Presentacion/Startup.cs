@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using HospiEnCasa.App.Persistencia;
+
 namespace HospiEnCasa.App.Presentacion
 {
     public class Startup
@@ -24,6 +26,8 @@ namespace HospiEnCasa.App.Presentacion
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            // services.AddSingleton<IRepositorioPaciente, RepositorioPaciente>();
+            
             
         }
 

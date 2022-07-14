@@ -59,7 +59,8 @@ namespace HospiEnCasa.App.Persistencia
             var enfermeraEncontrada = _appContext.Enfermeras.FirstOrDefault(e => e.Id == enfermera.Id);
             if (enfermeraEncontrada != null)
             {
-                enfermeraEncontrada.Nombre = enfermera.Nombre;
+                enfermeraEncontrada.Identificacion = enfermera.Identificacion;
+                enfermeraEncontrada.Nombres = enfermera.Nombres;
                 enfermeraEncontrada.Apellidos = enfermera.Apellidos;
                 enfermeraEncontrada.NumeroTelefono = enfermera.NumeroTelefono;
                 enfermeraEncontrada.Genero = enfermera.Genero;

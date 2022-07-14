@@ -4,14 +4,16 @@ using HospiEnCasa.App.Persistencia;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HospiEnCasa.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    partial class AppContextModelSnapshot : ModelSnapshot
+    [Migration("20220714004138_UpdateEntidadPersona")]
+    partial class UpdateEntidadPersona
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,9 +55,6 @@ namespace HospiEnCasa.App.Persistencia.Migrations
 
                     b.Property<int>("Genero")
                         .HasColumnType("int");
-
-                    b.Property<string>("Identificacion")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombres")
                         .HasColumnType("nvarchar(max)");
