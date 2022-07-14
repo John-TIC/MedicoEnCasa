@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <ItemGroup>
+    <ProjectReference Include="..\HospiEnCasa.App.Dominio\HospiEnCasa.App.Dominio.csproj" />
+    <ProjectReference Include="..\HospiEnCasa.App.Persistencia\HospiEnCasa.App.Persistencia.csproj" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>

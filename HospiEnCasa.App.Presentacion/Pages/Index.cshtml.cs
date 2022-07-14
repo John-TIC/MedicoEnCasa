@@ -19,7 +19,6 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public void OnGet()
         {
-
         }
     }
 }
