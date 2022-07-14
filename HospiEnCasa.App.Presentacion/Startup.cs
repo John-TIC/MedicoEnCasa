@@ -29,6 +29,8 @@ namespace HospiEnCasa.App.Presentacion
 
             // Servicio IRespositorioPaciente 
             services.AddSingleton<IRepositorioPaciente>(new RepositorioPaciente(new HospiEnCasa.App.Persistencia.AppContext()));
+            // Servicio IRespositorioFamiliarDesignado
+            services.AddSingleton<IRepositorioFamiliarDesignado>(new RepositorioFamiliarDesignado(new HospiEnCasa.App.Persistencia.AppContext()));
             
         }
 

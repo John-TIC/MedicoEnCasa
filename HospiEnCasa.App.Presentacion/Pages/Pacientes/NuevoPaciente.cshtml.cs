@@ -18,12 +18,12 @@ namespace HospiEnCasa.App.Presentacion.Pages
         public Paciente Paciente { get; set; }
 
         private readonly ILogger<IndexModel> _logger;
-        private readonly IRepositorioPaciente _repositorioPaciente;
+        private readonly IRepositorioPaciente repositorioPaciente;
 
         public NuevoPacienteModel(ILogger<IndexModel> logger, IRepositorioPaciente repositorioPaciente)
         {
             _logger = logger;
-            _repositorioPaciente = repositorioPaciente;
+            this.repositorioPaciente = repositorioPaciente;
         }
 
         public void OnGet()
@@ -34,9 +34,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
         public IActionResult OnPost()
         {
 
-            _logger.LogInformation("Get method", DateTime.UtcNow.ToLongTimeString());
+            _logger.LogInformation("Post method", DateTime.UtcNow.ToLongTimeString());
 
-            Paciente nuevoPaciente = _repositorioPaciente.AddPaciente(Paciente);
+            Paciente nuevoPaciente = repositorioPaciente.AddPaciente(Paciente);
 
             if(nuevoPaciente == null){
                 return RedirectToPage("Error");

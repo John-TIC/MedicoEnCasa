@@ -1,6 +1,7 @@
 ﻿@page
 @model HospiEnCasa.App.Presentacion.Pages.PacientesModel
 @{
+    ViewData["Title"] = "Pacientes";
 }
 
     <!-- Start Ppal Sections -->
@@ -87,29 +88,27 @@
               <th>Accion</th>
             </thead>
             <tbody>
-              @foreach(var paciente in Model.Paciente){
-              <tr>
-                <td>@paciente.Identificacion</td>
-                 <td>@paciente.Nombres</td>
-                   <td>@paciente.Apellidos</td>
-                   <td>@paciente.NumeroTelefono</td>
-                   <td>@paciente.Direccion</td>
-                
-                <td>
-                  <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>&nbsp;&nbsp;&nbsp;
-                  <a href="#">
-                    <i class="fa-solid fa-pen-to-square icon-edit" title="Editar"></i>
-                  </a>&nbsp;&nbsp;&nbsp;
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal" title="Signos"></i>
-                  </a>
-                </td>
-              </tr>
-              
-                
-               } </tbody>
+              @foreach(var paciente in Model.Pacientes){
+                <tr>
+                  <td>@paciente.Identificacion</td>
+                  <td>@paciente.Nombres</td>
+                    <td>@paciente.Apellidos</td>
+                    <td>@paciente.NumeroTelefono</td>
+                    <td>@paciente.Direccion</td>
+                  <td>
+                    <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@paciente.Id">
+                      <i class="fa-solid fa-eye icon-view"></i>
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="#">
+                      <i class="fa-solid fa-pen-to-square icon-edit" title="Editar"></i>
+                    </a>&nbsp;&nbsp;&nbsp;
+                    <a href="#">
+                      <i class="fa-solid fa-file-waveform icon-signal" title="Signos"></i>
+                    </a>
+                  </td>
+                </tr>
+              }
+            </tbody>
           </table>
           <!-- End Table section -->
           <!-- Start Pagination table section -->

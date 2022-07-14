@@ -2,6 +2,7 @@
 @using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.NuevoPacienteModel
 @{
+  ViewData["Title"] = "Nuevo Paciente";
 }
     <!-- Start Ppal Sections -->
     <div class="d-flex flex-lg-row flex-column mt-5">
@@ -71,7 +72,7 @@
                 <div class="col-lg-6">
                   <label asp-for="Paciente.Genero" class="form-label">Genero</label>
                   <select asp-for="Paciente.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()">
-                    <option selected>Choose...</option>
+                     <option selected>Choose...</option>
                   </select>
                 </div>
               </fieldset>
