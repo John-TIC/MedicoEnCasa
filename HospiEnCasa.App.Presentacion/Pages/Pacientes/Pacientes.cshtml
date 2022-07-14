@@ -87,259 +87,29 @@
               <th>Accion</th>
             </thead>
             <tbody>
+              @foreach(var paciente in Model.Paciente){
               <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
+                <td>@paciente.Identificacion</td>
+                 <td>@paciente.Nombres</td>
+                   <td>@paciente.Apellidos</td>
+                   <td>@paciente.NumeroTelefono</td>
+                   <td>@paciente.Direccion</td>
+                
                 <td>
                   <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente">
                     <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
+                  </a>&nbsp;&nbsp;&nbsp;
                   <a href="#">
                     <i class="fa-solid fa-pen-to-square icon-edit" title="Editar"></i>
-                  </a>
+                  </a>&nbsp;&nbsp;&nbsp;
                   <a href="#">
                     <i class="fa-solid fa-file-waveform icon-signal" title="Signos"></i>
                   </a>
                 </td>
               </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>Data 1</td>
-                <td>Data 2</td>
-                <td>Data 3</td>
-                <td>Data 4</td>
-                <td>Data 5</td>
-                <td>
-                  <a href="#">
-                    <i class="fa-solid fa-eye icon-view"></i>
-                  </a>
-                  <a href="#"
-                    ><i class="fa-solid fa-pen-to-square icon-edit"></i
-                  ></a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
+              
+                
+               } </tbody>
           </table>
           <!-- End Table section -->
           <!-- Start Pagination table section -->
