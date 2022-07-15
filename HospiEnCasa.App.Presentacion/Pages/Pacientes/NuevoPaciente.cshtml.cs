@@ -1,3 +1,4 @@
+using System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public IActionResult OnPost()
         {
+            if(!ModelState.IsValid)
+                return Page();
+                
             Paciente nuevoPaciente = repositorioPaciente.AddPaciente(Paciente);
 
             if(nuevoPaciente == null){
