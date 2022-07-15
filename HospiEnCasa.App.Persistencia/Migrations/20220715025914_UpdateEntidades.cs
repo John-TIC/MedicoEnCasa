@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospiEnCasa.App.Persistencia.Migrations
 {
-    public partial class Entidades : Migration
+    public partial class UpdateEntidades : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,8 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Identificacion = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nombres = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     NumeroTelefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Genero = table.Column<int>(type: "int", nullable: false),

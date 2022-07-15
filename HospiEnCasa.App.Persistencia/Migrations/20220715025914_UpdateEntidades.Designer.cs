@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospiEnCasa.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220625235032_Entidades")]
-    partial class Entidades
+    [Migration("20220715025914_UpdateEntidades")]
+    partial class UpdateEntidades
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,7 +56,10 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.Property<int>("Genero")
                         .HasColumnType("int");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Identificacion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombres")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NumeroTelefono")
