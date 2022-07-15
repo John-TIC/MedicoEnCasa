@@ -14,8 +14,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
     {
         [BindProperty]
         public FamiliarDesignado FamiliarDesignado {get; set;}
-        [BindProperty]
-        public Paciente Paciente {get; set;}
+
+        [TempData]
+        public int IdPaciente { get; set; }
 
         private readonly IRepositorioFamiliarDesignado repositorioFamiliar;
         private readonly IRepositorioPaciente repositorioPaciente;
@@ -27,26 +28,32 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public IActionResult OnGet(int id)
         {
-            Paciente = repositorioPaciente.GetPaciente(id);
+            Paciente paciente = repositorioPaciente.GetPaciente(id);
 
-            if(Paciente == null)
+            if(paciente == null)
                 return RedirectToPage("Error");
 
-            ViewData["pacienteACuidar"] = Paciente.Identificacion + " : " + Paciente.Nombres + " " + Paciente.Apellidos;
+            ViewData["pacienteACuidar"] = paciente.Identificacion + " : " + paciente.Nombres + " " + paciente.Apellidos;
+            IdPaciente = paciente.Id;
 
             return Page();
 
         }
 
-        public IActionResult OnPost(){
+        public IActionResult OnPost()
+        {
             FamiliarDesignado familiar = repositorioFamiliar.AddFamiliarDesignado(FamiliarDesignado);
 
             if(familiar == null)
                 return RedirectToPage("Error");
 
-            Paciente.FamiliarDesignado = familiar;
+            Paciente paciente = repositorioPaciente.GetPaciente(IdPaciente);
 
-            repositorioPaciente.UpdatePaciente(Paciente);
+            if (paciente == null)
+                return RedirectToPage("Error");
+
+            paciente.FamiliarDesignado = familiar;
+            repositorioPaciente.UpdatePaciente(paciente);
 
             return Page();
         }

@@ -1,8 +1,8 @@
 ﻿@page "{id:int}"
 @using HospiEnCasa.App.Dominio
-@model HospiEnCasa.App.Presentacion.Pages.NuevoFamiliarModel
+@model HospiEnCasa.App.Presentacion.Pages.FamiliarModel
 @{
-  ViewData["Title"] = "Nuevo Familiar";
+  ViewData["Title"] = "Familiar";
 }
 
     <!-- Start Ppal Sections -->
@@ -39,7 +39,7 @@
             <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a></li>
             <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Paciente">Paciente</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-              Nuevo Familiar
+              Familiar
             </li>
           </ol>
         </nav>
@@ -48,38 +48,45 @@
         <section class="">
           <!-- Start Title and form search section -->
           <div class="container pb-4">
-            <h1 class="title-section">Nuevo Familiar</h1>
-            <form class="" method="post">
+            <h1 class="title-section">Familiar Designado</h1>
+                        <div class="row d-flex justify-content-lg-start align-items-center">
+              <div class="col-lg-6">
+                <img
+                  src="~/avatar/johansson.png"
+                  class="col-lg-5 img-perfil"
+                  alt="..."
+                />
+              </div>
+            </div>
+
+            <form class="">
               <fieldset class="row g-3 py-3">
-                <div class="col-12">
+                <div class="col-lg-6">
                   <label for="inputPaciente" class="form-label">Paciente a Cuidar</label>
                   <input class="form-control" type="text" id="inputPaciente" readonly value="@ViewData["pacienteACuidar"]">
                 </div>
+                <div class="col-lg-6"></div>
               </fieldset>
               <fieldset class="row g-3 py-3">
                 <div class="col-lg-6">
-                  <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
-                  <input class="form-control" type="file" id="inputAvatar">
-                </div>
-                <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.Identificacion" class="form-label">Identificacion</label>
-                  <input asp-for="FamiliarDesignado.Identificacion" class="form-control" required>
+                  <input asp-for="FamiliarDesignado.Identificacion" class="form-control" readonly>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.Nombres" class="form-label">Nombres</label>
-                  <input asp-for="FamiliarDesignado.Nombres" class="form-control" required/>
+                  <input asp-for="FamiliarDesignado.Nombres" class="form-control" readonly/>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.Apellidos" class="form-label">Apellidos</label>
-                  <input asp-for="FamiliarDesignado.Apellidos" class="form-control" required/>
+                  <input asp-for="FamiliarDesignado.Apellidos" class="form-control" readonly/>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.NumeroTelefono" for="inputTelefono" class="form-label">Telefono</label>
-                  <input asp-for="FamiliarDesignado.NumeroTelefono" type="tel" class="form-control" required/>
+                  <input asp-for="FamiliarDesignado.NumeroTelefono" type="tel" class="form-control" readonly/>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.Genero" class="form-label">Genero</label>
-                  <select asp-for="FamiliarDesignado.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()">
+                  <select asp-for="FamiliarDesignado.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()" disabled>
                      <option selected>Choose...</option>
                   </select>
                 </div>
@@ -87,15 +94,15 @@
               <fieldset class="row g-3 py-3">
                 <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.Parentesco" class="form-label">Parentesco</label>
-                  <input asp-for="FamiliarDesignado.Parentesco" class="form-control" required/>
+                  <input asp-for="FamiliarDesignado.Parentesco" class="form-control" readonly/>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="FamiliarDesignado.Correo" class="form-label">E-Mail</label>
-                  <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control" required/>
+                  <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control" readonly/>
                 </div>
               </fieldset>
               <div class="d-flex justify-content-end py-3">
-                <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="submit" class="btn btn-primary" disabled>Registrar</button>
               </div>
             </form>
           </div>
@@ -106,4 +113,5 @@
       <!-- End Main section -->
     </div>
     <!-- End Ppal Sections -->
+
 

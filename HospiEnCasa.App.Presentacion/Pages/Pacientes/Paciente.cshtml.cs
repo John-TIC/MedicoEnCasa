@@ -29,6 +29,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
                 return RedirectToPage("Error");
 
             ViewData["idPaciente"] = id;
+
             return Page();
         }
     }
