@@ -45,7 +45,9 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Apellidos")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()
@@ -55,12 +57,17 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Identificacion")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Nombres")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("NumeroTelefono")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -137,10 +144,13 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.HasBaseType("HospiEnCasa.App.Dominio.Persona");
 
                     b.Property<string>("Correo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Parentesco")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasDiscriminator().HasValue("FamiliarDesignado");
                 });
@@ -183,11 +193,11 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.Property<int?>("HistoriaId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Latitud")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Latitud")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<float>("Longitud")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Longitud")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("MedicoId")
                         .HasColumnType("int");
