@@ -6,8 +6,8 @@ namespace HospiEnCasa.App.Dominio
     public class Paciente : Persona
     {
         public string Direccion { get; set; }
-        public float Latitud { get; set; }
-        public float Longitud { get; set; }
+        public decimal Latitud { get; set; }
+        public decimal Longitud { get; set; }
         public string Ciudad { get; set; }
         public DateTime FechaNacimiento { get; set; }
 
