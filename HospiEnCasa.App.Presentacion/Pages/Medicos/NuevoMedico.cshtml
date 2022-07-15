@@ -1,4 +1,5 @@
 ﻿@page
+@using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.NuevoMedicoModel
 @{
   ViewData["Title"] = "Nuevo Medico";
@@ -47,44 +48,43 @@
           <!-- Start Title and form search section -->
           <div class="container pb-4">
             <h1 class="title-section">Nuevo Medico</h1>
-            <form class="">
+            <form class="" method="post">
               <fieldset class="row g-3 py-3">
                 <div class="col-lg-6">
                   <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
                   <input class="form-control" type="file" id="inputAvatar">
                 </div>
                 <div class="col-lg-6">
-                  <label for="inputIdentificacion" class="form-label">Identificacion</label>
-                  <input class="form-control" type="text" id="inputIdentificacion" required>
+                  <label for="Medico.Identificacion" class="form-label">Identificacion</label>
+                  <input class="form-control" type="text" id="Medico.Identificacion" required>
                 </div>
                 <div class="col-lg-6">
-                  <label for="inputNombres" class="form-label">Nombres</label>
-                  <input type="text" class="form-control" id="inputNombres" required/>
+                  <label for="Medico.Nombres" class="form-label">Nombres</label>
+                  <input type="text" class="form-control" id="Medico.Nombres" required/>
                 </div>
                 <div class="col-lg-6">
-                  <label for="inputApellidos" class="form-label">Apellidos</label>
-                  <input type="text" class="form-control" id="inputApellidos" required/>
+                  <label for="Medico.Apellidos" class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="Medico.Apellidos" required/>
                 </div>
                 <div class="col-lg-6">
-                  <label for="inputTelefono" class="form-label">Telefono</label>
-                  <input type="tel" class="form-control" id="inputTelefono" required/>
+                  <label for="Medico.Telefono" class="form-label">Telefono</label>
+                  <input type="tel" class="form-control" id="MedicoTelefono" required/>
                 </div>
                 <div class="col-lg-6">
-                  <label for="inputGenero" class="form-label">Genero</label>
-                  <select id="inputGenero" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                  <label asp-for="Medico.Genero" class="form-label">Genero</label>
+                  <select asp-for="Medico.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()">
+                     <option selected>Choose...</option>
                   </select>
                 </div>
               </fieldset>
               <fieldset class="row g-3 py-3">
                 <div class="col-lg-6">
-                  <label for="inputEspecialidad" class="form-label">Especialidad</label>
-                  <input type="text" class="form-control" id="inputEspecialidad" required/>
+                  <label for="Medico.Especialidad" class="form-label">Especialidad</label>
+                  <input type="text" class="form-control" id="Medico.Especialidad" required/>
                 </div>
                 <div class="col-lg-6">
-                  <label for="inputRethus" class="form-label">Registro Rethus</label>
-                  <input type="text" class="form-control" id="inputRethus" required/>
+                  <label for="Medico.RegistroRethus" class="form-label">Registro Rethus</label>
+                  <input type="text" class="form-control" id="Medico.RegistroRethus" required/>
                 </div>
               </fieldset>
               <div class="d-flex justify-content-end py-3">

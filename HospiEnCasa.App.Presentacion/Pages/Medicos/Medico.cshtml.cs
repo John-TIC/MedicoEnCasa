@@ -2,28 +2,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HospiEnCasa.App.Dominio;
-using HospiEnCasa.App.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+using HospiEnCasa.App.Dominio;
+using HospiEnCasa.App.Persistencia;
+
 namespace HospiEnCasa.App.Presentacion.Pages
 {
-    public class MedicosModel : PageModel
+    public class MedicoModel : PageModel
     {
-        private readonly IRepositorioMedico repositorioMedico;
-        public IEnumerable<Medico> Medicos { get; set; }
+        [BindProperty]
+        public Medico Medico {get; set;}
 
-        public MedicosModel(IRepositorioMedico repositorioMedico)
-        {
+        private readonly IRepositorioMedico repositorioMedico;
+
+        public MedicoModel(IRepositorioMedico repositorioMedico){
             this.repositorioMedico = repositorioMedico;
         }
-        public IActionResult OnGet()
+        public IActionResult OnGet(int id)
         {
-            Medicos = repositorioMedico.GetAllMedicos();
+            Medico = repositorioMedico.GetMedico(id);
 
-            if(Medicos == null)
+            if(Medico == null)
                 return RedirectToPage("Error");
+
+            ViewData["idMedico"] = id;
 
             return Page();
         }
