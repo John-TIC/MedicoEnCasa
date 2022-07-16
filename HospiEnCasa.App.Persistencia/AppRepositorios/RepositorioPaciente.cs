@@ -52,6 +52,7 @@ namespace HospiEnCasa.App.Persistencia
         public Paciente GetPaciente(int idPaciente)
         {
             return _appContext.Pacientes.FirstOrDefault(p => p.Id == idPaciente);
+
         }
 
         public Paciente UpdatePaciente(Paciente paciente)

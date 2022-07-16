@@ -1,3 +1,4 @@
+using System.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,25 +18,22 @@ namespace HospiEnCasa.App.Presentacion.Pages
         [BindProperty]
         public Paciente Paciente { get; set; }
 
-        private readonly ILogger<IndexModel> _logger;
         private readonly IRepositorioPaciente repositorioPaciente;
 
-        public NuevoPacienteModel(ILogger<IndexModel> logger, IRepositorioPaciente repositorioPaciente)
+        public NuevoPacienteModel(IRepositorioPaciente repositorioPaciente)
         {
-            _logger = logger;
             this.repositorioPaciente = repositorioPaciente;
         }
 
         public void OnGet()
         {
-            _logger.LogInformation("Get method", DateTime.UtcNow.ToLongTimeString());
         }
 
         public IActionResult OnPost()
         {
-
-            _logger.LogInformation("Post method", DateTime.UtcNow.ToLongTimeString());
-
+            if(!ModelState.IsValid)
+                return Page();
+                
             Paciente nuevoPaciente = repositorioPaciente.AddPaciente(Paciente);
 
             if(nuevoPaciente == null){

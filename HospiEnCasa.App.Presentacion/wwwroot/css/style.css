@@ -30,6 +30,14 @@ html {
     color: var(--hospital-green);
 }
 
+.icon-without-data{
+    color: var(--very-light-pink);
+}
+
+.icon-with-data{
+    color: var(--hospital-green);
+}
+
 .name-avatar{
     font-size: 0.7rem;
     color: var(--hospital-green);
@@ -51,10 +59,6 @@ html {
 
 .icon-signal{
     color: var(--green-flor);
-}
-
-.icon-edit{
-    color: var(--blue-flor);
 }
 
 .name-app{
