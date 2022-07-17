@@ -16,14 +16,14 @@ namespace HospiEnCasa.App.Persistencia
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder
+               optionsBuilder
                 .UseSqlServer("Server=tcp:server-mision-tic.database.windows.net,1433;Initial Catalog=HospiEnCasa_DB;Persist Security Info=False;User ID=AdminMisionTIC2022;Password=MinTIC2022@*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
                 //  .UseSqlServer("Data Source = localhost; Initial Catalog = HospiEnCasaDatas; User=sa; Password=Pass2023*");
             }
 
+           
         }
     }
 }

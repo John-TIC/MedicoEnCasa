@@ -31,7 +31,7 @@ namespace HospiEnCasa.App.Persistencia
             _appContext.SaveChanges();
         }
 
-        public IEnumerable<Medico> GetAllMedico()
+        public IEnumerable<Medico> GetAllMedicos()
         {
             return _appContext.Medicos;
         }

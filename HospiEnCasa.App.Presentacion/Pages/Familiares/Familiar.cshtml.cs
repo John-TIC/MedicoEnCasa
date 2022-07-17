@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,18 +6,16 @@ using HospiEnCasa.App.Persistencia;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
-    public class NuevoFamiliarModel : PageModel
+    public class FamiliarModel : PageModel
     {
+
         [BindProperty]
         public FamiliarDesignado FamiliarDesignado { get; set; }
-
-        [TempData]
-        public int IdPaciente { get; set; }
 
         private readonly IRepositorioFamiliarDesignado repositorioFamiliar;
         private readonly IRepositorioPaciente repositorioPaciente;
 
-        public NuevoFamiliarModel(IRepositorioFamiliarDesignado repositorioFamiliar, IRepositorioPaciente repositorioPaciente)
+        public FamiliarModel(IRepositorioFamiliarDesignado repositorioFamiliar, IRepositorioPaciente repositorioPaciente)
         {
             this.repositorioFamiliar = repositorioFamiliar;
             this.repositorioPaciente = repositorioPaciente;
@@ -35,29 +29,11 @@ namespace HospiEnCasa.App.Presentacion.Pages
                 return RedirectToPage("Error");
 
             ViewData["pacienteACuidar"] = paciente.Identificacion + " : " + paciente.Nombres + " " + paciente.Apellidos;
-            IdPaciente = paciente.Id;
 
-            return Page();
+            FamiliarDesignado = repositorioFamiliar.GetFamiliarDesignado((int)paciente.FamiliarDesignadoId);
 
-        }
-
-        public IActionResult OnPost()
-        {
-            if (!ModelState.IsValid)
-                return Page();
-
-            FamiliarDesignado familiar = repositorioFamiliar.AddFamiliarDesignado(FamiliarDesignado);
-
-            if (familiar == null)
+            if (FamiliarDesignado == null)
                 return RedirectToPage("Error");
-
-            Paciente paciente = repositorioPaciente.GetPaciente(IdPaciente);
-
-            if (paciente == null)
-                return RedirectToPage("Error");
-
-            paciente.FamiliarDesignado = familiar;
-            repositorioPaciente.UpdatePaciente(paciente);
 
             return Page();
         }

@@ -2,6 +2,7 @@
 @using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.NuevoPacienteModel
 @{
+  ViewData["Title"] = "Nuevo Paciente";
 }
     <!-- Start Ppal Sections -->
     <div class="d-flex flex-lg-row flex-column mt-5">
@@ -54,47 +55,56 @@
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="Paciente.Identificacion" class="form-label">Identificacion</label>
-                  <input asp-for="Paciente.Identificacion" class="form-control" required>
+                  <input asp-for="Paciente.Identificacion" class="form-control">
+                  <span asp-validation-for="Paciente.Identificacion" class="text-danger"></span>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="Paciente.Nombres" class="form-label">Nombres</label>
-                  <input asp-for="Paciente.Nombres" class="form-control" required/>
+                  <input asp-for="Paciente.Nombres" class="form-control">
+                  <span asp-validation-for="Paciente.Nombres" class="text-danger"></span>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="Paciente.Apellidos" class="form-label">Apellidos</label>
-                  <input asp-for="Paciente.Apellidos" class="form-control" required/>
+                  <input asp-for="Paciente.Apellidos" class="form-control">
+                  <span asp-validation-for="Paciente.Apellidos" class="text-danger"></span>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="Paciente.NumeroTelefono" class="form-label">Telefono</label>
-                  <input asp-for="Paciente.NumeroTelefono" type="tel" class="form-control" required/>
+                  <input asp-for="Paciente.NumeroTelefono" class="form-control">
+                  <span asp-validation-for="Paciente.NumeroTelefono" class="text-danger"></span>
                 </div>
                 <div class="col-lg-6">
                   <label asp-for="Paciente.Genero" class="form-label">Genero</label>
                   <select asp-for="Paciente.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()">
-                    <option selected>Choose...</option>
+                     <option selected>Choose...</option>
                   </select>
                 </div>
               </fieldset>
               <fieldset class="row g-3 py-3">
                 <div class="col-12">
                   <label asp-for="Paciente.Direccion" class="form-label">Direccion</label>
-                  <input asp-for="Paciente.Direccion" class="form-control" required/>
+                  <input asp-for="Paciente.Direccion" class="form-control">
+                  <span asp-validation-for="Paciente.Direccion" class="text-danger"></span>
                 </div>
                 <div class="col-lg-3">
                   <label asp-for="Paciente.Ciudad" class="form-label">Ciudad</label>
-                  <input asp-for="Paciente.Ciudad" class="form-control" required/>
+                  <input asp-for="Paciente.Ciudad" class="form-control">
+                  <span asp-validation-for="Paciente.Ciudad" class="text-danger"></span>
                 </div>
                 <div class="col-lg-3">
                   <label asp-for="Paciente.FechaNacimiento" class="form-label">Fecha Nacimiento</label>
-                  <input asp-for="Paciente.FechaNacimiento" type="date" class="form-control" required/>
+                  <input asp-for="Paciente.FechaNacimiento" type="date" class="form-control">
+                  <span asp-validation-for="Paciente.FechaNacimiento" class="text-danger"></span>
                 </div>
                 <div class="col-lg-3">
                   <label asp-for="Paciente.Latitud" class="form-label">Latitud</label>
-                  <input asp-for="Paciente.Latitud" type="number" class="form-control"/>
+                  <input asp-for="Paciente.Latitud" class="form-control">
+                  <span asp-validation-for="Paciente.Latitud" class="text-danger"></span>
                 </div>
                 <div class="col-lg-3">
                   <label asp-for="Paciente.Longitud" class="form-label">Longitud</label>
-                  <input asp-for="Paciente.Longitud" type="number" class="form-control"/>
+                  <input asp-for="Paciente.Longitud" class="form-control">
+                  <span asp-validation-for="Paciente.Longitud" class="text-danger"></span>
                 </div>
               </fieldset>
               <div class="d-flex justify-content-end py-3">

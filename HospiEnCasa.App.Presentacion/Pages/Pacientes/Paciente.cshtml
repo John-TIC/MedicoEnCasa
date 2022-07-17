@@ -1,192 +1,150 @@
-﻿@page
+﻿@page "{id:int}"
+@using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.PacienteModel
 @{
+    ViewData["Title"] = "Paciente";
 }
 
-    <!-- Start Ppal Sections -->
-    <div class="d-flex flex-lg-row flex-column mt-5">
-      <!-- Start Submenu vertical -->
-      <aside class="col-lg-2 pt-5 ps-3 bg-light">
+<!-- Start Ppal Sections -->
+<div class="d-flex flex-lg-row flex-column mt-5">
+    <!-- Start Submenu vertical -->
+    <aside class="col-lg-2 pt-5 ps-3 bg-light">
         <div class="container">
-          <nav id="nav-second" class="navbar navbar-light bg-light">
-            <ul class="nav flex-lg-column">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Otra opcion</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Otra opcion</a>
-              </li>
-            </ul>
-          </nav>
+            <nav id="nav-second" class="navbar navbar-light bg-light">
+                <ul class="nav flex-lg-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Otra opcion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Otra opcion</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-      </aside>
-      <!-- End Submenu vertical -->
-
-      <!-- Start Main section -->
-      <main class="container-fluid pt-5">
+    </aside>
+    <!-- End Submenu vertical -->
+    <!-- Start Main section -->
+    <main class="container-fluid pt-5">
         <!-- Start Breadcrumb section -->
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
-            <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              Paciente
-            </li>
-          </ol>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Paciente
+                </li>
+            </ol>
         </nav>
         <!-- End Breadcrumb section -->
         <!-- Start Content section -->
         <section class="">
-          <!-- Start Title and form search section -->
-          <div class="container pb-4">
-            <h1 class="title-section">Informacion Paciente</h1>
-            <div class="row d-flex justify-content-lg-start align-items-center">
-              <div class="col-lg-6">
-                <img
-                  src="~/avatar/johansson.png"
-                  class="col-lg-5 img-perfil"
-                  alt="..."
-                />
-              </div>
-              <div class="col-lg-6 d-flex flex-lg-column">
-                <a class="navbar-brand logo" href="#">
-                  <i class="fa-solid fa-user-doctor fa-xl"></i>
-                  <span>Medico</span>
-                </a>
-                <a class="navbar-brand logo" href="#">
-                  <i class="fa-solid fa-user-nurse fa-xl"></i>
-                  <span>Enfermera</span>
-                </a>
-                <a class="navbar-brand logo" asp-area="" asp-page="/Familiares/NuevoFamiliar">
-                  <i class="fa-solid fa-person-half-dress fa-xl"></i>
-                  <span>Familiar</span>
-                </a>
-                <a class="navbar-brand logo" href="#">
-                  <i class="fa-solid fa-file-waveform fa-xl"></i>
-                  <span>Signos Vitales</span>
-                </a>
-                <a class="navbar-brand logo" href="#">
-                  <i class="fa-solid fa-clipboard-user fa-xl"></i>
-                  <span>Historia</span>
-                </a>
-              </div>
+            <!-- Start Title and form search section -->
+            <div class="container pb-4">
+                <h1 class="title-section">Informacion Paciente</h1>
+                <div class="row d-flex justify-content-lg-start align-items-center">
+                    <div class="col-lg-6">
+                        <img src="~/avatar/johansson.png"
+                             class="col-lg-5 img-perfil"
+                             alt="..." />
+                    </div>
+                    <div class="col-lg-6 d-flex flex-lg-column">
+                        <a class="navbar-brand logo" href="#">
+                            <i class="fa-solid fa-user-doctor fa-xl"></i>
+                            <span>Medico</span>
+                        </a>
+                        <a class="navbar-brand logo" href="#">
+                            <i class="fa-solid fa-user-nurse fa-xl"></i>
+                            <span>Enfermera</span>
+                        </a>
+
+                        @{
+                            if (@Model.Paciente.FamiliarDesignadoId == null)
+                            {
+                                <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Familiares/NuevoFamiliar" asp-route-id="@ViewData["idPaciente"]">
+                                    <i class="fa-solid fa-person-half-dress fa-xl"></i>
+                                    <span>Familiar</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Familiares/Familiar" asp-route-id="@ViewData["idPaciente"]">
+                                    <i class="fa-solid fa-person-half-dress fa-xl"></i>
+                                    <span>Familiar</span>
+                                </a>
+                            }
+                        }
+                        <a class="navbar-brand logo" href="#">
+                            <i class="fa-solid fa-file-waveform fa-xl"></i>
+                            <span>Signos Vitales</span>
+                        </a>
+                        <a class="navbar-brand logo" href="#">
+                            <i class="fa-solid fa-clipboard-user fa-xl"></i>
+                            <span>Historia</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="">
+                    <fieldset class="row g-3 py-3">
+                        <div class="col-lg-6">
+                            <label asp-for="Paciente.Identificacion" class="form-label">Identificacion</label>
+                            <input asp-for="Paciente.Identificacion" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-6">
+                            <label asp-for="Paciente.Nombres" class="form-label">Nombres</label>
+                            <input asp-for="Paciente.Nombres" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Paciente.Apellidos" class="form-label">Apellidos</label>
+                            <input asp-for="Paciente.Apellidos" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Paciente.NumeroTelefono" class="form-label">Telefono</label>
+                            <input asp-for="Paciente.NumeroTelefono" type="tel" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Paciente.Genero" class="form-label">Genero</label>
+                            <select asp-for="Paciente.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()" disabled>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset class="row g-3 py-3">
+                        <div class="col-12">
+                            <label asp-for="Paciente.Direccion" class="form-label">Direccion</label>
+                            <input asp-for="Paciente.Direccion" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Paciente.Ciudad" class="form-label">Ciudad</label>
+                            <input asp-for="Paciente.Ciudad" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Paciente.FechaNacimiento" class="form-label">Fecha Nacimiento</label>
+                            <input asp-for="Paciente.FechaNacimiento" type="date" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Paciente.Latitud" class="form-label">Latitud</label>
+                            <input asp-for="Paciente.Latitud" type="number" class="form-control" readonly />
+                        </div>
+                        <div class="col-lg-3">
+                            <label asp-for="Paciente.Longitud" class="form-label">Longitud</label>
+                            <input asp-for="Paciente.Longitud" type="number" class="form-control" readonly />
+                        </div>
+                    </fieldset>
+                    <div class="d-flex justify-content-end py-3">
+                        <button type="submit" class="btn btn-primary disabled">Editar</button>
+                    </div>
+                </form>
             </div>
-            <form class="">
-              <fieldset class="row g-3 py-3">
-                <div class="col-lg-6">
-                  <label for="inputIdentificacion" class="form-label"
-                    >Identificacion</label
-                  >
-                  <input
-                    readonly
-                    class="form-control"
-                    type="text"
-                    id="inputIdentificacion"
-                  />
-                </div>
-                <div class="col-lg-6"></div>
-                <div class="col-lg-6">
-                  <label for="inputNombres" class="form-label">Nombres</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    id="inputNombres"
-                  />
-                </div>
-                <div class="col-lg-6">
-                  <label for="inputApellidos" class="form-label"
-                    >Apellidos</label
-                  >
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    id="inputApellidos"
-                  />
-                </div>
-                <div class="col-lg-6">
-                  <label for="inputTelefono" class="form-label">Telefono</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    id="inputTelefono"
-                  />
-                </div>
-                <div class="col-lg-6">
-                  <label for="inputGenero" class="form-label">Genero</label>
-                  <select disabled id="inputGenero" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                  </select>
-                </div>
-              </fieldset>
-              <fieldset class="row g-3 py-3">
-                <div class="col-12">
-                  <label for="inputDireccion" class="form-label"
-                    >Direccion</label
-                  >
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    id="inputDireccion"
-                  />
-                </div>
-                <div class="col-lg-3">
-                  <label for="inputCiudad" class="form-label">Ciudad</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    id="inputCiudad"
-                  />
-                </div>
-                <div class="col-lg-3">
-                  <label for="inputFechaNacimiento" class="form-label">Fecha Nacimiento</label>
-                  <input
-                    readonly
-                    type="date"
-                    class="form-control"
-                    id="inputFechaNacimiento"
-                  />
-                </div>
-                <div class="col-lg-3">
-                  <label for="inputLatitud" class="form-label">Latitud</label>
-                  <input
-                    readonly
-                    type="number"
-                    class="form-control"
-                    id="inputLatitud"
-                  />
-                </div>
-                <div class="col-lg-3">
-                  <label for="inputLongitud" class="form-label">Longitud</label>
-                  <input
-                    readonly
-                    type="text"
-                    class="form-control"
-                    id="inputLongitud"
-                  />
-                </div>
-              </fieldset>
-              <div class="d-flex justify-content-end py-3">
-                <button type="submit" class="btn btn-primary">Editar</button>
-              </div>
-            </form>
-          </div>
-          <!-- End Title and form search section -->
+            <!-- End Title and form search section -->
         </section>
         <!-- Start Content section -->
-      </main>
-      <!-- End Main section -->
-    </div>
-    <!-- End Ppal Sections -->
-
+    </main>
+    <!-- End Main section -->
+</div>
+<!-- End Ppal Sections -->

@@ -12,16 +12,20 @@ namespace HospiEnCasa.App.Presentacion.Pages
     public class PacientesModel : PageModel
     {
         private readonly IRepositorioPaciente repositorioPaciente;
-        [BindProperty]
-        public IEnumerable<Paciente> Paciente {get; set;}
-        
+        public IEnumerable<Paciente> Pacientes { get; set; }
+
         public PacientesModel(IRepositorioPaciente repositorioPaciente)
         {
-                this.repositorioPaciente = repositorioPaciente;
+            this.repositorioPaciente = repositorioPaciente;
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            Paciente = repositorioPaciente.GetAllPacientes();
+            Pacientes = repositorioPaciente.GetAllPacientes();
+
+            if(Pacientes == null)
+                return RedirectToPage("Error");
+
+            return Page();
         }
     }
 }
