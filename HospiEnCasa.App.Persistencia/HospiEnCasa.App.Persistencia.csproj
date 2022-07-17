@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HospiEnCasa.App.Dominio\HospiEnCasa.App.Dominio.csproj" />
+    <ProjectReference Include="../HospiEnCasa.App.Dominio/HospiEnCasa.App.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

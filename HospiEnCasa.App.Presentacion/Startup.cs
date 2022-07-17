@@ -47,6 +47,11 @@ namespace HospiEnCasa.App.Presentacion
                 return new RepositorioMedico(new HospiEnCasa.App.Persistencia.AppContext());
             });
 
+            services.AddScoped<IRepositorioEnfermera>((IServiceProvider sp) =>
+            {
+                return new RepositorioEnfermera(new HospiEnCasa.App.Persistencia.AppContext());
+            });
+
             services.AddMemoryCache();
         }
 
