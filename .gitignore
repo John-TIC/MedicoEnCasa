@@ -437,4 +437,4 @@ $RECYCLE.BIN/
 tokengitrepository
 cspell.json
 HospiEnCasa.App.Persistencia/AppRepositorios/AppContext.cs
-#HospiEnCasa.App.Persistencia/Migrations
+HospiEnCasa.App.Persistencia/Migrations
