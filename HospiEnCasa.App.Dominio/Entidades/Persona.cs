@@ -8,7 +8,7 @@ namespace HospiEnCasa.App.Dominio
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Ingrese una Identificacion")]
-        [StringLength(20, MinimumLength =6, ErrorMessage = "Identificacion debe tener entre 6 y 20 caracteres")]
+        [StringLength(10, MinimumLength =6, ErrorMessage = "Identificacion debe tener entre 6 y 20 caracteres")]
         public string Identificacion {get; set;}
 
         [Required(ErrorMessage = "Ingrese un Nombre")]
@@ -21,6 +21,7 @@ namespace HospiEnCasa.App.Dominio
 
         [Required(ErrorMessage = "Ingrese un Numero de Telefono")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Ingrese un Numero Telefonico valido")]
+        [StringLength(13, MinimumLength =6, ErrorMessage = "Teléfono debe tener entre 6 y 20 caracteres")]
         public string NumeroTelefono { get; set; }
 
         public Genero Genero { get; set; }
