@@ -13,16 +13,10 @@
       <nav id="nav-second" class="navbar navbar-light bg-light">
         <ul class="nav flex-lg-column">
           <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+            <a class="nav-link" asp-area="" asp-page="/Medicos/Medicos">Listado</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Medicos/NuevoMedico">Registrar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Otra opcion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Otra opcion</a>
           </li>
         </ul>
       </nav>
@@ -106,3 +100,13 @@
   <!-- End Main section -->
 </div>
 <!-- End Ppal Sections -->
+
+<!-- Start Modal-->
+@if (@Model.IsCreateMedico)
+{
+  <partial name="_ModalView" for="ModalInfo" />
+  @section ScriptModal{
+    <partial name="_ModalViewScript" />
+  }
+}
+<!-- End Modal-->

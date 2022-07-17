@@ -47,7 +47,10 @@ namespace HospiEnCasa.App.Presentacion
                 return new RepositorioMedico(new HospiEnCasa.App.Persistencia.AppContext());
             });
 
-            services.AddMemoryCache();
+            services.AddScoped<IRepositorioEnfermera>((IServiceProvider sp) =>
+            {
+                return new RepositorioEnfermera(new HospiEnCasa.App.Persistencia.AppContext());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

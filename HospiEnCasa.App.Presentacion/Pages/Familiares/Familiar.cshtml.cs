@@ -12,6 +12,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
         [BindProperty]
         public FamiliarDesignado FamiliarDesignado { get; set; }
 
+        [TempData]
+        public int IdPaciente { get; set; }
+
         private readonly IRepositorioFamiliarDesignado repositorioFamiliar;
         private readonly IRepositorioPaciente repositorioPaciente;
 
@@ -24,6 +27,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
         public IActionResult OnGet(int id)
         {
             Paciente paciente = repositorioPaciente.GetPaciente(id);
+            IdPaciente = id;
 
             if (paciente == null)
                 return RedirectToPage("Error");

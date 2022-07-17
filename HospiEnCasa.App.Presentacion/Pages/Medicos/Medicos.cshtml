@@ -17,12 +17,6 @@
           <li class="nav-item">
             <a class="nav-link" asp-area="" asp-page="/Medicos/NuevoMedico">Registrar</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Otra opcion</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled">Otra opcion</a>
-          </li>
         </ul>
       </nav>
     </div>
@@ -77,26 +71,37 @@
           <th>Accion</th>
         </thead>
         <tbody>
-          @foreach (var medico in Model.Medicos)
+          @if (Model.Medicos.FirstOrDefault() == null)
           {
             <tr>
-              <td>@medico.Identificacion</td>
-              <td>@medico.Nombres</td>
-              <td>@medico.Apellidos</td>
-              <td>@medico.NumeroTelefono</td>
-              <td>@medico.Especialidad</td>
-              <td>
-                <a title="Ver" asp-area="" asp-page="/Medicos/Medico" asp-route-id="@medico.Id">
-                  <i class="fa-solid fa-eye icon-view mx-1" title="Ver"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-solid fa-pen-to-square icon-edit mx-1" title="Editar"></i>
-                </a>
-                <a href="#">
-                  <i class="fa-solid fa-file-waveform icon-signal mx-1" title="Signos"></i>
-                </a>
+              <td colspan="6" class="table-active">
+                <span><strong>No se encontraron dados de Medicos en el sistema</strong></span>
               </td>
             </tr>
+          }
+          else
+          {
+            @foreach (var medico in Model.Medicos)
+            {
+              <tr>
+                <td>@medico.Identificacion</td>
+                <td>@medico.Nombres</td>
+                <td>@medico.Apellidos</td>
+                <td>@medico.NumeroTelefono</td>
+                <td>@medico.Especialidad</td>
+                <td>
+                  <a title="Ver" asp-area="" asp-page="/Medicos/Medico" asp-route-id="@medico.Id">
+                    <i class="fa-solid fa-eye icon-view mx-1" title="Ver"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-solid fa-pen-to-square icon-edit mx-1" title="Editar"></i>
+                  </a>
+                  <a href="#">
+                    <i class="fa-solid fa-file-waveform icon-signal mx-1" title="Signos"></i>
+                  </a>
+                </td>
+              </tr>
+            }
           }
         </tbody>
       </table>

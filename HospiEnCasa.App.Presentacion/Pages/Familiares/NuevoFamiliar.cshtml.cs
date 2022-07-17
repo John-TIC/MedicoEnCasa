@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
+using HospiEnCasa.App.Presentacion.Model;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -17,6 +18,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         [TempData]
         public int IdPaciente { get; set; }
+
+        public bool IsCreateFamiliar { get; set; }
+        public ModalInfo ModalInfo { get; set; }
 
         private readonly IRepositorioFamiliarDesignado repositorioFamiliar;
         private readonly IRepositorioPaciente repositorioPaciente;
@@ -43,6 +47,8 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public IActionResult OnPost()
         {
+            IsCreateFamiliar = false;
+
             if (!ModelState.IsValid)
                 return Page();
 
@@ -58,6 +64,14 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
             paciente.FamiliarDesignado = familiar;
             repositorioPaciente.UpdatePaciente(paciente);
+
+            ModalInfo = new ModalInfo{
+                TitleModal = "Nuevo Paciente",
+                MsgModal = "Paciente " + paciente.Nombres + " " + paciente.Apellidos + " creado correctamente",
+                PageRedirect = "/Pacientes/Pacientes"
+            };
+
+            IsCreateFamiliar = true;
 
             return Page();
         }
