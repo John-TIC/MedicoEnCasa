@@ -26,6 +26,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
                 return RedirectToPage("Error");
 
             return Page();
+            
         }
     }
 }
