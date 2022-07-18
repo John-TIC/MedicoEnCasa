@@ -23,8 +23,8 @@ namespace HospiEnCasa.App.Presentacion.Pages
             //Pacientes = repositorioPaciente.GetAllPacientes();
             Pacientes = repositorioPaciente.GetPacientesXFiltro(filtroB);
 
-            if(Pacientes == null)
-                return RedirectToPage("Error");
+            if(Pacientes == null || Pacientes.Count() == 0)
+                Pacientes = null;
 
             return Page();
         }

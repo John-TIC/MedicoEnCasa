@@ -24,8 +24,8 @@ namespace HospiEnCasa.App.Presentacion.Pages
         {
             Enfermeras = repositorioEnfermera.GetAllEnfermera();
 
-            // if (Enfermeras == null)
-            //     return RedirectToPage("Error");
+            if (Enfermeras == null || Enfermeras.Count() == 0)
+                Enfermeras = null;
 
             return Page();
         }
