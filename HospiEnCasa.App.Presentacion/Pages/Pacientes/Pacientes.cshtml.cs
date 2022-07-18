@@ -18,9 +18,10 @@ namespace HospiEnCasa.App.Presentacion.Pages
         {
             this.repositorioPaciente = repositorioPaciente;
         }
-        public IActionResult OnGet()
+        public IActionResult OnGet(string filtroB)
         {
-            Pacientes = repositorioPaciente.GetAllPacientes();
+            //Pacientes = repositorioPaciente.GetAllPacientes();
+            Pacientes = repositorioPaciente.GetPacientesXFiltro(filtroB);
 
             if(Pacientes == null)
                 return RedirectToPage("Error");
