@@ -1,0 +1,20 @@
+@model HospiEnCasa.App.Presentacion.Model.ModalInfo
+
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">@Model.TitleModal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick='location.href="@Url.Page("/Index")"'></button>
+            </div>
+            <div class="modal-body">@Model.MsgModal</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                    onclick='location.href="@Url.PageLink(@Model.PageRedirect)"'>
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

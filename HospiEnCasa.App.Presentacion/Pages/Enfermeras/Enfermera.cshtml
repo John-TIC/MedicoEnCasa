@@ -1,8 +1,8 @@
-﻿@page "{id:int}"
+@page "{id:int}"
 @using HospiEnCasa.App.Dominio
-@model HospiEnCasa.App.Presentacion.Pages.MedicoModel
+@model HospiEnCasa.App.Presentacion.Pages.EnfermeraModel
 @{
-    ViewData["Title"] = "Medico";
+    ViewData["Title"] = "Enfermera";
 }
 
 <!-- Start Ppal Sections -->
@@ -13,10 +13,10 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Medicos/Medicos">Listado</a>
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Medicos/NuevoMedico">Registrar</a>
+                        <a class="nav-link" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -29,9 +29,9 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
-                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos">Medicos</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Enfermeras/Enfermeras">Enfermeras</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    Medico
+                    Enfermera
                 </li>
             </ol>
         </nav>
@@ -40,7 +40,7 @@
         <section class="">
             <!-- Start Title and form search section -->
             <div class="container pb-4">
-                <h1 class="title-section">Informacion Medico</h1>
+                <h1 class="title-section">Informacion Enfermera</h1>
                 <div class="row d-flex justify-content-lg-start align-items-center">
                     <div class="col-lg-6">
                         <img src="~/avatar/johansson.png"
@@ -51,36 +51,36 @@
                 <form class="">
                     <fieldset class="row g-3 py-3">
                         <div class="col-lg-6">
-                            <label asp-for="Medico.Identificacion" class="form-label">Identificacion</label>
-                            <input asp-for="Medico.Identificacion" class="form-control" readonly />
+                            <label asp-for="Enfermera.Identificacion" class="form-label">Identificacion</label>
+                            <input asp-for="Enfermera.Identificacion" class="form-control" readonly />
                         </div>
                         <div class="col-lg-6"></div>
                         <div class="col-lg-6">
-                            <label asp-for="Medico.Nombres" class="form-label">Nombres</label>
-                            <input asp-for="Medico.Nombres" class="form-control" readonly />
+                            <label asp-for="Enfermera.Nombres" class="form-label">Nombres</label>
+                            <input asp-for="Enfermera.Nombres" class="form-control" readonly />
                         </div>
                         <div class="col-lg-6">
-                            <label asp-for="Medico.Apellidos" class="form-label">Apellidos</label>
-                            <input asp-for="Medico.Apellidos" class="form-control" readonly />
+                            <label asp-for="Enfermera.Apellidos" class="form-label">Apellidos</label>
+                            <input asp-for="Enfermera.Apellidos" class="form-control" readonly />
                         </div>
                         <div class="col-lg-6">
-                            <label asp-for="Medico.NumeroTelefono" class="form-label">Telefono</label>
-                            <input asp-for="Medico.NumeroTelefono" type="tel" class="form-control" readonly />
+                            <label asp-for="Enfermera.NumeroTelefono" class="form-label">Telefono</label>
+                            <input asp-for="Enfermera.NumeroTelefono" type="tel" class="form-control" readonly />
                         </div>
                         <div class="col-lg-6">
-                            <label asp-for="Medico.Genero" class="form-label">Genero</label>
-                            <select asp-for="Medico.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()" disabled>
+                            <label asp-for="Enfermera.Genero" class="form-label">Genero</label>
+                            <select asp-for="Enfermera.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()" disabled>
                             </select>
                         </div>
                     </fieldset>
                     <fieldset class="row g-3 py-3">
                         <div class="col-12">
-                            <label asp-for="Medico.Especialidad" class="form-label">Especialidad</label>
-                            <input asp-for="Medico.Especialidad" class="form-control" readonly />
+                            <label asp-for="Enfermera.TarjetaProfesional" class="form-label">Tarjeta Profesional</label>
+                            <input asp-for="Enfermera.TarjetaProfesional" class="form-control" readonly />
                         </div>
                         <div class="col-lg-3">
-                            <label asp-for="Medico.RegistroRethus" class="form-label">Registro Rethus</label>
-                            <input asp-for="Medico.RegistroRethus" class="form-control" readonly />
+                            <label asp-for="Enfermera.HorasLaborales" class="form-label">Horas Laborales</label>
+                            <input asp-for="Enfermera.HorasLaborales" class="form-control" readonly />
                         </div>
                     </fieldset>
                     <div class="d-flex justify-content-end py-3">

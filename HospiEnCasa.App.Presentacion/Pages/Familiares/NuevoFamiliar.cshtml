@@ -16,13 +16,7 @@
                         <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Medicos/NuevoMedico">Registrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Otra opcion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Otra opcion</a>
+                        <a class="nav-link" asp-area="" asp-page="/Familiares/NuevoFamiliar" disabled>Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -36,7 +30,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a></li>
-                <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Paciente">Paciente</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@Model.IdPaciente">Paciente</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
                     Nuevo Familiar
                 </li>
@@ -95,12 +89,12 @@
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.Correo" class="form-label">E-Mail</label>
-                            <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control">
+                            <input asp-for="FamiliarDesignado.Correo" class="form-control">
                             <span asp-validation-for="FamiliarDesignado.Correo" class="text-danger"></span>
                         </div>
                     </fieldset>
                     <div class="d-flex justify-content-end py-3">
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Registrar</button>
                     </div>
                 </form>
             </div>
@@ -111,3 +105,14 @@
     <!-- End Main section -->
 </div>
 <!-- End Ppal Sections -->
+
+<!-- Start Modal-->
+@if (@Model.IsCreateFamiliar)
+{
+  <partial name="_ModalView" for="ModalInfo" />
+  @section ScriptModal{
+    <partial name="_ModalViewScript" />
+  }
+}
+<!-- End Modal-->
+

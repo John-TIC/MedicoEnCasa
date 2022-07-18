@@ -3,11 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HospiEnCasa.App.Dominio;
-using HospiEnCasa.App.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+
+using HospiEnCasa.App.Dominio;
+using HospiEnCasa.App.Persistencia;
+using HospiEnCasa.App.Presentacion.Model;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -15,6 +17,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
     {
         [BindProperty]
         public Medico Medico { get; set; }
+
+        public bool IsCreateMedico { get; set; }
+        public ModalInfo ModalInfo { get; set; }
 
         private readonly IRepositorioMedico repositorioMedico;
 
@@ -27,14 +32,26 @@ namespace HospiEnCasa.App.Presentacion.Pages
         }
         public IActionResult OnPost()
         {
-            if(!ModelState.IsValid)
+            IsCreateMedico = false;
+
+            if (!ModelState.IsValid)
                 return Page();
-                
+
             Medico nuevoMedico = repositorioMedico.AddMedico(Medico);
 
-            if(nuevoMedico == null){
+            if (nuevoMedico == null)
+            {
                 return RedirectToPage("Error");
             }
+
+            ModalInfo = new ModalInfo
+            {
+                TitleModal = "Nuevo Medico",
+                MsgModal = "Medico " + nuevoMedico.Nombres + " " + nuevoMedico.Apellidos + " creado correctamente",
+                PageRedirect = "/Medicos/Medicos"
+            };
+
+            IsCreateMedico = true;
 
             return Page();
         }

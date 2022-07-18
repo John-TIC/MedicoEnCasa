@@ -9,6 +9,10 @@ html {
     position: relative;
   }
 
+body{
+    margin-bottom: 60px;
+}
+
 /* ************************* */
 /* Variables */
 :root{
@@ -133,4 +137,12 @@ html {
 .nav .nav-link.active{
     color: var(--nav-link-active);
 }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 30px; /* Vertically center the text there */
+  }
 

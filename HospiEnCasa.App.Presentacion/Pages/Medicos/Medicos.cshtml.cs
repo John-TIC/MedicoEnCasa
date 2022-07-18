@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HospiEnCasa.App.Dominio;
-using HospiEnCasa.App.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+
+using HospiEnCasa.App.Dominio;
+using HospiEnCasa.App.Persistencia;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -22,8 +23,8 @@ namespace HospiEnCasa.App.Presentacion.Pages
         {
             Medicos = repositorioMedico.GetAllMedicos();
 
-            if(Medicos == null)
-                return RedirectToPage("Error");
+            // if(Medicos == null)
+            //     return RedirectToPage("Error");
 
             return Page();
         }

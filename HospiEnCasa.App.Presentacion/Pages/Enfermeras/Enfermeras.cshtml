@@ -4,75 +4,57 @@
   ViewData["Title"] = "Enfermeras";
 }
 
-    <!-- Start Ppal Sections -->
-    <div class="d-flex flex-lg-row flex-column mt-5">
-      <!-- Start Submenu vertical -->
-      <aside class="col-lg-2 pt-5 ps-3 bg-light">
-        <div class="container">
-          <nav id="nav-second" class="navbar navbar-light bg-light">
-            <ul class="nav flex-lg-column">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Otra opcion</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Otra opcion</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </aside>
-      <!-- End Submenu vertical -->
+<!-- Start Ppal Sections -->
+<div class="d-flex flex-lg-row flex-column mt-5">
+  <!-- Start Submenu vertical -->
+  <aside class="col-lg-2 pt-5 ps-3 bg-light">
+    <div class="container">
+      <nav id="nav-second" class="navbar navbar-light bg-light">
+        <ul class="nav flex-lg-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Otra opcion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Otra opcion</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <!-- End Submenu vertical -->
 
-      <!-- Start Main section -->
-      <main class="container-fluid pt-5">
-        <!-- Start Breadcrumb section -->
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              Enfermeras
-            </li>
-          </ol>
-        </nav>
-        <!-- End Breadcrumb section -->
-        <!-- Start Content section -->
-        <section>
-          <!-- Start Title and form search section -->
-          <div class="d-flex justify-content-between align-items-center pb-4">
-            <h1 class="title-section">Listado de Enfermeras</h1>
-            <form class="row row-cols-lg-auto g-3">
-              <div class="col-auto">
-                <label class="visually-hidden" for="specificCriteriaType"
-                  >Criterio</label
-                >
-                <select class="form-select" id="specificCriteriaType">
-                  <option selected>Choose...</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              <div class="col-auto">
-                <label class="visually-hidden" for="specificCriteria"
-                  >Name</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="specificCriteria"
-                  placeholder="Por nombre?"
-                />
-              </div>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-              </div>
-            </form>
+  <!-- Start Main section -->
+  <main class="container-fluid pt-5">
+    <!-- Start Breadcrumb section -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Enfermeras
+        </li>
+      </ol>
+    </nav>
+    <!-- End Breadcrumb section -->
+    <!-- Start Content section -->
+    <section>
+      <!-- Start Title and form search section -->
+      <div class="d-flex justify-content-between align-items-center pb-4">
+        <h1 class="title-section">Listado de Enfermeras</h1>
+        <form class="row row-cols-lg-auto g-3">
+          <div class="col-auto">
+            <label class="visually-hidden" for="specificCriteriaType">Criterio</label>
+            <select class="form-select" id="specificCriteriaType">
+              <option selected>Choose...</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
           </div>
           <!-- End Title and form search section -->
           <!-- Start Table section -->

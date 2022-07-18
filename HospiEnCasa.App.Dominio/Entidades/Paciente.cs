@@ -6,12 +6,16 @@ namespace HospiEnCasa.App.Dominio
 {
     public class Paciente : Persona
     {
-        [Required, StringLength(20)]
+        [Required(ErrorMessage = "Ingrese una Direccion")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Direccion debe tener entre 5 y 50 caracteres")]
         public string Direccion { get; set; }
-        public decimal Latitud { get; set; }
-        public decimal Longitud { get; set; }
+
+        public decimal? Latitud { get; set; }
+        public decimal? Longitud { get; set; }
+        
         public string Ciudad { get; set; }
-        [Required, DataType(DataType.DateTime)]
+        [Required(ErrorMessage = "Ingrese una Direccion")]
+        [DataType(DataType.Date)]
         public DateTime FechaNacimiento { get; set; }
 
         public int? FamiliarDesignadoId { get; set;}

@@ -13,16 +13,11 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+                        <a class="nav-link active" aria-current="page" asp-area=""
+                            asp-page="/Pacientes/Pacientes">Listado</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Otra opcion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Otra opcion</a>
                     </li>
                 </ul>
             </nav>
@@ -49,9 +44,7 @@
                 <h1 class="title-section">Informacion Paciente</h1>
                 <div class="row d-flex justify-content-lg-start align-items-center">
                     <div class="col-lg-6">
-                        <img src="~/avatar/johansson.png"
-                             class="col-lg-5 img-perfil"
-                             alt="..." />
+                        <img src="~/avatar/johansson.png" class="col-lg-5 img-perfil" alt="..." />
                     </div>
                     <div class="col-lg-6 d-flex flex-lg-column">
                         <a class="navbar-brand logo" href="#">
@@ -66,14 +59,16 @@
                         @{
                             if (@Model.Paciente.FamiliarDesignadoId == null)
                             {
-                                <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Familiares/NuevoFamiliar" asp-route-id="@ViewData["idPaciente"]">
+                                <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Familiares/NuevoFamiliar"
+                            asp-route-id="@ViewData["idPaciente"]">
                                     <i class="fa-solid fa-person-half-dress fa-xl"></i>
                                     <span>Familiar</span>
                                 </a>
                             }
                             else
                             {
-                                <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Familiares/Familiar" asp-route-id="@ViewData["idPaciente"]">
+                                <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Familiares/Familiar"
+                            asp-route-id="@ViewData["idPaciente"]">
                                     <i class="fa-solid fa-person-half-dress fa-xl"></i>
                                     <span>Familiar</span>
                                 </a>
@@ -110,7 +105,8 @@
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="Paciente.Genero" class="form-label">Genero</label>
-                            <select asp-for="Paciente.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()" disabled>
+                            <select asp-for="Paciente.Genero" class="form-select"
+                                asp-items="Html.GetEnumSelectList<Genero>()" disabled>
                             </select>
                         </div>
                     </fieldset>
@@ -125,15 +121,15 @@
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.FechaNacimiento" class="form-label">Fecha Nacimiento</label>
-                            <input asp-for="Paciente.FechaNacimiento" type="date" class="form-control" readonly />
+                            <input asp-for="Paciente.FechaNacimiento" class="form-control" readonly />
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Latitud" class="form-label">Latitud</label>
-                            <input asp-for="Paciente.Latitud" type="number" class="form-control" readonly />
+                            <input asp-for="Paciente.Latitud" class="form-control" readonly />
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Longitud" class="form-label">Longitud</label>
-                            <input asp-for="Paciente.Longitud" type="number" class="form-control" readonly />
+                            <input asp-for="Paciente.Longitud" class="form-control" readonly />
                         </div>
                     </fieldset>
                     <div class="d-flex justify-content-end py-3">

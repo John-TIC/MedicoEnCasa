@@ -2,45 +2,38 @@
 @using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.NuevaEnfermeraModel
 @{
-  ViewData["Title"] = "Nueva Enfermera";
+    ViewData["Title"] = "Nueva Enfermera";
 }
 
-    <!-- Start Ppal Sections -->
-    <div class="d-flex flex-lg-row flex-column mt-5">
-      <!-- Start Submenu vertical -->
-      <aside class="col-lg-2 pt-5 ps-3 bg-light">
+<!-- Start Ppal Sections -->
+<div class="d-flex flex-lg-row flex-column mt-5">
+    <!-- Start Submenu vertical -->
+    <aside class="col-lg-2 pt-5 ps-3 bg-light">
         <div class="container">
-          <nav id="nav-second" class="navbar navbar-light bg-light">
-            <ul class="nav flex-lg-column">
-              <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Otra opcion</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Otra opcion</a>
-              </li>
-            </ul>
-          </nav>
+            <nav id="nav-second" class="navbar navbar-light bg-light">
+                <ul class="nav flex-lg-column">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-      </aside>
-      <!-- End Submenu vertical -->
-
-      <!-- Start Main section -->
-      <main class="container-fluid pt-5">
+    </aside>
+    <!-- End Submenu vertical -->
+    <!-- Start Main section -->
+    <main class="container-fluid pt-5">
         <!-- Start Breadcrumb section -->
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
-            <li class="breadcrumb-item"><a asp-area="" asp-page="/Enfermeras/Enfermeras">Enfermeras</a></li>
-            <li class="breadcrumb-item active" aria-current="page">
-              Nueva Enfermera
-            </li>
-          </ol>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Enfermeras/Enfermeras">Enfermeras</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Nueva Enfermera
+                </li>
+            </ol>
         </nav>
         <!-- End Breadcrumb section -->
         <!-- Start Content section -->
@@ -104,8 +97,27 @@
           <!-- End Title and form search section -->
         </section>
         <!-- Start Content section -->
-      </main>
-      <!-- End Main section -->
-    </div>
-    <!-- End Ppal Sections -->
+    </main>
+    <!-- End Main section -->
+</div>
+<!-- End Ppal Sections -->
+
+<!-- Start Modal-->
+@if (@ViewData["Message"] != null)
+{
+
+    <partial name="_ModalView" />
+
+
+    @section ScriptModal{
+    <partial name="_ModalViewScript" />
+        }
+}
+else
+{
+    @section ScriptModal{
+        }
+
+}
+<!-- End Modal-->
 

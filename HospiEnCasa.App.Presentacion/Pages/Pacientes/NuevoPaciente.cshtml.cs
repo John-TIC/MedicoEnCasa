@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
+using HospiEnCasa.App.Presentacion.Model;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -17,6 +18,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         [BindProperty]
         public Paciente Paciente { get; set; }
+
+        public bool IsCreatePaciente { get; set; }
+        public ModalInfo ModalInfo {get; set; }
 
         private readonly IRepositorioPaciente repositorioPaciente;
 
@@ -31,14 +35,23 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public IActionResult OnPost()
         {
-            if(!ModelState.IsValid)
+            IsCreatePaciente = false;
+
+            if (!ModelState.IsValid)
                 return Page();
                 
             Paciente nuevoPaciente = repositorioPaciente.AddPaciente(Paciente);
 
-            if(nuevoPaciente == null){
+            if(nuevoPaciente == null)
                 return RedirectToPage("Error");
-            }
+
+            ModalInfo = new ModalInfo{
+                TitleModal = "Nuevo Paciente",
+                MsgModal = "Paciente " + nuevoPaciente.Nombres + " " + nuevoPaciente.Apellidos + " creado correctamente",
+                PageRedirect = "/Pacientes/Pacientes"
+            };
+
+            IsCreatePaciente = true;
 
             return Page();
         }
