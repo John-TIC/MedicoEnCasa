@@ -66,8 +66,8 @@ namespace HospiEnCasa.App.Presentacion.Pages
             repositorioPaciente.UpdatePaciente(paciente);
 
             ModalInfo = new ModalInfo{
-                TitleModal = "Nuevo Paciente",
-                MsgModal = "Paciente " + paciente.Nombres + " " + paciente.Apellidos + " creado correctamente",
+                TitleModal = "Nuevo Familiar",
+                MsgModal = "Familiar de " + paciente.Nombres + " " + paciente.Apellidos + " creado correctamente",
                 PageRedirect = "/Pacientes/Pacientes"
             };
 

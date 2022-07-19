@@ -23,8 +23,8 @@ namespace HospiEnCasa.App.Presentacion.Pages
         {
             Medicos = repositorioMedico.GetAllMedicos();
 
-            // if(Medicos == null)
-            //     return RedirectToPage("Error");
+            if(Medicos == null || Medicos.Count() == 0)
+                Medicos = null;
 
             return Page();
         }

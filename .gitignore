@@ -438,3 +438,4 @@ tokengitrepository
 cspell.json
 HospiEnCasa.App.Persistencia/AppRepositorios/AppContext.cs
 HospiEnCasa.App.Persistencia/Migrations
+.vscode

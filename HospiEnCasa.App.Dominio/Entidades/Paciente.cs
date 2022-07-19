@@ -10,7 +10,10 @@ namespace HospiEnCasa.App.Dominio
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Direccion debe tener entre 5 y 50 caracteres")]
         public string Direccion { get; set; }
 
+        [Range(-90.0000, 90.0000)]
         public decimal? Latitud { get; set; }
+
+        [Range(-180.0000, 180.0000)]
         public decimal? Longitud { get; set; }
         
         public string Ciudad { get; set; }
