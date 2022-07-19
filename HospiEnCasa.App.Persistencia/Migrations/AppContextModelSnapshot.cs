@@ -58,8 +58,8 @@ namespace HospiEnCasa.App.Persistencia.Migrations
 
                     b.Property<string>("Identificacion")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Nombres")
                         .IsRequired()
@@ -68,7 +68,8 @@ namespace HospiEnCasa.App.Persistencia.Migrations
 
                     b.Property<string>("NumeroTelefono")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
 
                     b.HasKey("Id");
 
@@ -134,7 +135,9 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TarjetaProfesional")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasDiscriminator().HasValue("Enfermera");
                 });
@@ -159,14 +162,15 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                 {
                     b.HasBaseType("HospiEnCasa.App.Dominio.Persona");
 
-                    b.Property<string>("Codigo")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Especialidad")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("RegistroRethus")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasDiscriminator().HasValue("Medico");
                 });
@@ -176,9 +180,7 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                     b.HasBaseType("HospiEnCasa.App.Dominio.Persona");
 
                     b.Property<string>("Ciudad")
-                        .IsRequired()
-                        .HasMaxLength(9)
-                        .HasColumnType("nvarchar(9)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
                         .IsRequired()
@@ -192,16 +194,15 @@ namespace HospiEnCasa.App.Persistencia.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaNacimiento")
-                        .HasMaxLength(20)
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("HistoriaId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Latitud")
+                    b.Property<decimal?>("Latitud")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Longitud")
+                    b.Property<decimal?>("Longitud")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("MedicoId")
