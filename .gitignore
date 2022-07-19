@@ -426,7 +426,7 @@ $RECYCLE.BIN/
 ##
 ## Visual Studio Code
 ##
-.vscode/*
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -436,5 +436,4 @@ $RECYCLE.BIN/
 ## Otros
 tokengitrepository
 cspell.json
-HospiEnCasa.App.Persistencia/Migrations
-.vscode
+/HospiEnCasa.App.Persistencia/Migrations/*.*
