@@ -48,11 +48,13 @@
               <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
               <input class="form-control" type="file" id="inputAvatar">
             </div>
+
             <div class="col-lg-6">
               <label asp-for="Medico.Identificacion" class="form-label">Identificacion</label>
               <input asp-for="Medico.Identificacion" class="form-control">
               <span asp-validation-for="Medico.Identificacion" class="text-danger"></span>
             </div>
+            
             <div class="col-lg-6">
               <label asp-for="Medico.Nombres" class="form-label">Nombres</label>
               <input asp-for="Medico.Nombres" class="form-control">

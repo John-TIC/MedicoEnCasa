@@ -1,4 +1,5 @@
 ﻿@page
+@using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.NuevaEnfermeraModel
 @{
     ViewData["Title"] = "Nueva Enfermera";
@@ -37,55 +38,63 @@
         <!-- End Breadcrumb section -->
         <!-- Start Content section -->
         <section class="">
-            <!-- Start Title and form search section -->
-            <div class="container pb-4">
-                <h1 class="title-section">Nueva Enfermera</h1>
-                <form class="">
-                    <fieldset class="row g-3 py-3">
-                        <div class="col-lg-6">
-                            <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
-                            <input class="form-control" type="file" id="inputAvatar">
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="inputIdentificacion" class="form-label">Identificacion</label>
-                            <input class="form-control" type="text" id="inputIdentificacion" required>
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="inputNombres" class="form-label">Nombres</label>
-                            <input type="text" class="form-control" id="inputNombres" required />
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="inputApellidos" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="inputApellidos" required />
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="inputTelefono" class="form-label">Telefono</label>
-                            <input type="tel" class="form-control" id="inputTelefono" required />
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="inputGenero" class="form-label">Genero</label>
-                            <select id="inputGenero" class="form-select">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
-                        </div>
-                    </fieldset>
-                    <fieldset class="row g-3 py-3">
-                        <div class="col-lg-6">
-                            <label for="inputEspecialidad" class="form-label">Tarjeta Profesional</label>
-                            <input type="text" class="form-control" id="inputEspecialidad" required />
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="inputRethus" class="form-label">Horas Laborales</label>
-                            <input type="number" class="form-control" id="inputRethus" />
-                        </div>
-                    </fieldset>
-                    <div class="d-flex justify-content-end py-3">
-                        <button type="submit" class="btn btn-primary">Registrar</button>
-                    </div>
-                </form>
+          <!-- Start Title and form search section -->
+          <div class="container pb-4">
+            <h1 class="title-section">Nueva Enfermera</h1>
+            <form class="" method="post">
+              <fieldset class="row g-3 py-3">
+                <div class="col-lg-6">
+                  <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
+                  <input class="form-control" type="file" id="inputAvatar">
+                </div>
+
+                <div class="col-lg-6">
+                  <label asp-for="Enfermera.Identificacion" class="form-label">Identificacion</label>
+                  <input asp-for="Enfermera.Identificacion" class="form-control" required>
+                   <span asp-validation-for="Enfermera.Identificacion" class="text-danger"></span>
+                </div>
+
+                <div class="col-lg-6">
+              <label asp-for="Enfermera.Nombres" class="form-label">Nombres</label>
+              <input asp-for="Enfermera.Nombres" class="form-control">
+              <span asp-validation-for="Enfermera.Nombres" class="text-danger"></span>
             </div>
-            <!-- End Title and form search section -->
+
+                <div class="col-lg-6">
+              <label asp-for="Enfermera.Apellidos" class="form-label">Apellidos</label>
+              <input asp-for="Enfermera.Apellidos" class="form-control">
+              <span asp-validation-for="Enfermera.Apellidos" class="text-danger"></span>
+            </div>
+            <div class="col-lg-6">
+              <label asp-for="Enfermera.NumeroTelefono" for="inputTelefono" class="form-label">Telefono</label>
+              <input asp-for="Enfermera.NumeroTelefono" type="tel" class="form-control">
+              <span asp-validation-for="Enfermera.NumeroTelefono" class="text-danger"></span>
+            </div>
+            <div class="col-lg-6">
+                  <label asp-for="Enfermera.Genero" class="form-label">Genero</label>
+                  <select asp-for="Enfermera.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()">
+                     <option selected>Choose...</option>
+                  </select>
+                </div>
+              </fieldset>
+              <fieldset class="row g-3 py-3">
+                <div class="col-lg-6">
+                  <label asp-for="Enfermera.TarjetaProfesional" class="form-label">Tarjeta Profesional</label>
+                  <input Enfermera.TarjetaProfesional" class="form-control" />
+                  <span asp-validation-for="Enfermera.TarjetaProfesional" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6">
+                  <label asp-for="Enfermera.HorasLaborales" class="form-label">Horas Laborales</label>
+                  <input asp-for="Enfermera.HorasLaborales" class="form-control" />
+                  <span asp-validation-for="Enfermera.HorasLaborales" class="text-danger"></span>
+                </div>
+              </fieldset>
+              <div class="d-flex justify-content-end py-3">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+              </div>
+            </form>
+          </div>
+          <!-- End Title and form search section -->
         </section>
         <!-- Start Content section -->
     </main>
