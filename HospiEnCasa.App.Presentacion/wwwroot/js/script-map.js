@@ -1,4 +1,4 @@
-var mymap = L.map('mimapa').setView([6.2063, -75.5951], 12);
+var mymap = L.map('mimapa');
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -40,26 +40,28 @@ let pacientes = [
     },
 ]
 
+mymap.setView([6.2063, -75.5951], 12);
+
 var popup = L.popup();
 pacientes.forEach(p => {
     let marker = L.marker([p.latitud, p.longitud], { icon: myIcon1 })
         .addTo(mymap)
-        .bindPopup(`<b>${p.nombres}</b><br>${p.diagnostico}`);
+        .bindPopup(`<b>${p.nombres}</b><br>${p.diagnostico}<br><a href="/Pacientes/Paciente/3">Ver paciente</a>`);
 });
 
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
+// function onMapClick(e) {
+//     popup
+//         .setLatLng(e.latlng)
+//         .setContent("You clicked the map at " + e.latlng.toString())
+//         .openOn(mymap);
+// }
 
-function onPupupEvent(e) {
-    //            console.log(e);
-    console.log(e.popup._leaflet_id)
-}
+// function onPupupEvent(e) {
+//     //            console.log(e);
+//     console.log(e.popup._leaflet_id)
+// }
 
-//        mymap.on('click', onMapClick);
-mymap.on('popupopen', onPupupEvent);
+// //        mymap.on('click', onMapClick);
+// mymap.on('popupopen', onPupupEvent);
 
 
