@@ -436,4 +436,5 @@ $RECYCLE.BIN/
 ## Otros
 tokengitrepository
 cspell.json
-/HospiEnCasa.App.Persistencia/Migrations/*.*
+HospiEnCasa.App.Persistencia/Migrations
+.vscode
