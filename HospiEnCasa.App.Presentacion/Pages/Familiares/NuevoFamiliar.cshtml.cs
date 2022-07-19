@@ -67,7 +67,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
             ModalInfo = new ModalInfo{
                 TitleModal = "Nuevo Familiar",
-                MsgModal = "Familiar de " + paciente.Nombres + " " + paciente.Apellidos + " creado correctamente",
+                MsgModal = "Familiar del paciente " + paciente.Nombres + " " + paciente.Apellidos + " creado correctamente",
                 PageRedirect = "/Pacientes/Pacientes"
             };
 
