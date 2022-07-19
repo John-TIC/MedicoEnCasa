@@ -36,17 +36,32 @@ namespace HospiEnCasa.App.Persistencia
             return _appContext.Pacientes;
         }
 
-        IEnumerable<Paciente> IRepositorioPaciente.GetPacientesXFiltro(string filtro) 
+        IEnumerable<Paciente> IRepositorioPaciente.GetPacientesXFiltro(string filtro, string criterio) 
         {
             var pacientes = _appContext.Pacientes; 
             if (pacientes != null) 
             {
                 if (!String.IsNullOrEmpty(filtro)) 
                 {
-                    return pacientes.Where(s => s.Identificacion.Contains(filtro));
-                    /// <summary>
-                    /// Filtra los pacientes que contienen el filtro
-                    /// </summary>
+                    if (criterio == "1")
+                    {
+                        return pacientes.Where(s => s.Identificacion.Contains(filtro));
+                    }
+                    else
+                    {
+                        if (criterio == "2")
+                        {
+                            return pacientes.Where(s => s.Nombres.Contains(filtro));
+                        }
+                        else
+                        {
+                            if (criterio == "3")
+                            {
+                                return pacientes.Where(s => s.NumeroTelefono.Contains(filtro));
+                            }
+                            else return pacientes;
+                        }
+                    }
                 }
                 else return pacientes;
             }

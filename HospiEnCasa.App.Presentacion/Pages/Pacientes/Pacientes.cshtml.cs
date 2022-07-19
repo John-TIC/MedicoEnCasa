@@ -18,10 +18,10 @@ namespace HospiEnCasa.App.Presentacion.Pages
         {
             this.repositorioPaciente = repositorioPaciente;
         }
-        public IActionResult OnGet(string filtroB)
+        public IActionResult OnGet(string filtroB, string criterio)
         {
             //Pacientes = repositorioPaciente.GetAllPacientes();
-            Pacientes = repositorioPaciente.GetPacientesXFiltro(filtroB);
+            Pacientes = repositorioPaciente.GetPacientesXFiltro(filtroB, criterio);
 
             if(Pacientes == null || Pacientes.Count() == 0)
                 Pacientes = null;
