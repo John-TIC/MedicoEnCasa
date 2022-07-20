@@ -84,7 +84,8 @@
                         </a>
                     </div>
                 </div>
-                <form class="">
+                <form class="" method="post" >
+                    <input type="hidden" asp-for="Paciente.Id"/>
                     <fieldset class="row g-3 py-3">
                         <div class="col-lg-6">
                             <label asp-for="Paciente.Identificacion" class="form-label">Identificacion</label>
@@ -93,15 +94,15 @@
                         <div class="col-lg-6"></div>
                         <div class="col-lg-6">
                             <label asp-for="Paciente.Nombres" class="form-label">Nombres</label>
-                            <input asp-for="Paciente.Nombres" class="form-control" readonly />
+                            <input asp-for="Paciente.Nombres" class="form-control"  readonly/>
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="Paciente.Apellidos" class="form-label">Apellidos</label>
-                            <input asp-for="Paciente.Apellidos" class="form-control" readonly />
+                            <input asp-for="Paciente.Apellidos" class="form-control"  readonly/>
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="Paciente.NumeroTelefono" class="form-label">Telefono</label>
-                            <input asp-for="Paciente.NumeroTelefono" type="tel" class="form-control" readonly />
+                            <input asp-for="Paciente.NumeroTelefono" type="tel" class="form-control"  />
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="Paciente.Genero" class="form-label">Genero</label>
@@ -113,7 +114,7 @@
                     <fieldset class="row g-3 py-3">
                         <div class="col-12">
                             <label asp-for="Paciente.Direccion" class="form-label">Direccion</label>
-                            <input asp-for="Paciente.Direccion" class="form-control" readonly />
+                            <input asp-for="Paciente.Direccion" class="form-control"  />
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Ciudad" class="form-label">Ciudad</label>
@@ -121,11 +122,11 @@
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.FechaNacimiento" class="form-label">Fecha Nacimiento</label>
-                            <input asp-for="Paciente.FechaNacimiento" class="form-control" readonly />
+                            <input asp-for="Paciente.FechaNacimiento" class="form-control"  readonly/>
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Latitud" class="form-label">Latitud</label>
-                            <input asp-for="Paciente.Latitud" class="form-control" readonly />
+                            <input asp-for="Paciente.Latitud" class="form-control"  readonly/>
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Longitud" class="form-label">Longitud</label>
@@ -133,7 +134,7 @@
                         </div>
                     </fieldset>
                     <div class="d-flex justify-content-end py-3">
-                        <button type="submit" class="btn btn-primary disabled">Editar</button>
+                        <button type="submit" class="btn btn-primary ">Editar</button>
                     </div>
                 </form>
             </div>
@@ -144,3 +145,12 @@
     <!-- End Main section -->
 </div>
 <!-- End Ppal Sections -->
+<!-- Start Modal-->
+@if (@Model.IsUpdatePaciente)
+{
+  <partial name="_ModalView" for="ModalInfo" />
+  @section ScriptModal{
+    <partial name="_ModalViewScript" />
+  }
+}
+<!-- End Modal-->
