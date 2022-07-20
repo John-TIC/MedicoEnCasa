@@ -36,6 +36,11 @@ namespace HospiEnCasa.App.Persistencia
             return _appContext.Pacientes;
         }
 
+        public IEnumerable<Paciente> GetAllPacientesAndHistoria()
+        {
+            return _appContext.Pacientes.Include(p => p.Historia).ToList();
+        }
+
         IEnumerable<Paciente> IRepositorioPaciente.GetPacientesXFiltro(string filtro, string criterio) 
         {
             var pacientes = _appContext.Pacientes; 
@@ -173,6 +178,21 @@ namespace HospiEnCasa.App.Persistencia
                 return historiaEncontrada;
             }
             return null;            
+        }
+
+        public Paciente GetHistoriaPaciente(int idPaciente)
+        {
+            return _appContext.Pacientes
+                .Where(p => p.Id == idPaciente)
+                .Include(p => p.Historia)
+                .Include(p => p.Historia.Sugerencias)
+                .FirstOrDefault();
+
+        }
+
+        public IEnumerable<Paciente> GetPacientesPorMedico(int idMedico)
+        {
+            return _appContext.Pacientes.Where(p => p.MedicoId == idMedico).ToList();
         }
     }
 }

@@ -45,6 +45,7 @@
         <h1 class="title-section">Nuevo Paciente</h1>
         <form class="" method="post">
           <fieldset class="row g-3 py-3">
+            <legend class="">Informacion Personal</legend>
             <div class="col-lg-6">
               <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
               <input class="form-control" type="file" id="inputAvatar">
@@ -77,6 +78,7 @@
             </div>
           </fieldset>
           <fieldset class="row g-3 py-3">
+            <legend class="">Informacion Paciente</legend>
             <div class="col-12">
               <label asp-for="Paciente.Direccion" class="form-label">Direccion</label>
               <input asp-for="Paciente.Direccion" class="form-control">
@@ -101,6 +103,29 @@
               <label asp-for="Paciente.Longitud" class="form-label">Longitud (DD)</label>
               <input asp-for="Paciente.Longitud" class="form-control">
               <span asp-validation-for="Paciente.Longitud" class="text-danger"></span>
+            </div>
+          </fieldset>
+          <fieldset class="row g-3 py-3">
+            <legend class="">Informacion Historia Clinica</legend>
+            <div class="col-lg-4">
+              <label asp-for="Historia.Diagnostico" class="form-label">Diagnostico</label>
+              <input asp-for="Historia.Diagnostico" class="form-control">
+              <span asp-validation-for="Historia.Diagnostico" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+              <label asp-for="Historia.Entorno" class="form-label">Entorno</label>
+              <input asp-for="Historia.Entorno" class="form-control">
+              <span asp-validation-for="Historia.Entorno" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+              <label asp-for="SugerenciaCuidado.FechaHora" class="form-label">Fecha y Hora Sugerencia</label>
+              <input asp-for="SugerenciaCuidado.FechaHora" class="form-control">
+              <span asp-validation-for="SugerenciaCuidado.FechaHora" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+              <label asp-for="SugerenciaCuidado.Descripcion" class="form-label">Descripcion Sugerencia</label>
+              <textarea asp-for="SugerenciaCuidado.Descripcion" class="form-control"></textarea>
+              <span asp-validation-for="SugerenciaCuidado.Descripcion" class="text-danger"></span>
             </div>
           </fieldset>
           <div class="d-flex justify-content-end py-3">

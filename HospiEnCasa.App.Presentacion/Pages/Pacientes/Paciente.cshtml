@@ -56,32 +56,45 @@
                             <span>Enfermera</span>
                         </a>
 
-                        @{
-                            if (@Model.Paciente.FamiliarDesignadoId == null)
-                            {
-                                <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Familiares/NuevoFamiliar"
-                            asp-route-id="@ViewData["idPaciente"]">
-                                    <i class="fa-solid fa-person-half-dress fa-xl"></i>
-                                    <span>Familiar</span>
-                                </a>
-                            }
-                            else
-                            {
-                                <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Familiares/Familiar"
-                            asp-route-id="@ViewData["idPaciente"]">
-                                    <i class="fa-solid fa-person-half-dress fa-xl"></i>
-                                    <span>Familiar</span>
-                                </a>
-                            }
+                        @if (@Model.Paciente.FamiliarDesignadoId == null)
+                        {
+                            <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Familiares/NuevoFamiliar"
+                            asp-route-id="@Model.Paciente.Id">
+                                <i class="fa-solid fa-person-half-dress fa-xl"></i>
+                                <span>Familiar</span>
+                            </a>
                         }
+                        else
+                        {
+                            <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Familiares/Familiar"
+                            asp-route-id="@Model.Paciente.Id">
+                                <i class="fa-solid fa-person-half-dress fa-xl"></i>
+                                <span>Familiar</span>
+                            </a>
+                        }
+
                         <a class="navbar-brand logo" href="#">
                             <i class="fa-solid fa-file-waveform fa-xl"></i>
                             <span>Signos Vitales</span>
                         </a>
-                        <a class="navbar-brand logo" href="#">
-                            <i class="fa-solid fa-clipboard-user fa-xl"></i>
-                            <span>Historia</span>
-                        </a>
+
+                        @if (@Model.Paciente.HistoriaId == null)
+                        {
+                            <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Historias/NuevaHistoria"
+                            asp-route-id="@Model.Paciente.Id">
+                                <i class="fa-solid fa-clipboard-user fa-xl"></i>
+                                <span>Historia</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Historias/Index"
+                            asp-route-idPaciente="@Model.Paciente.Id">
+                                <i class="fa-solid fa-clipboard-user fa-xl"></i>
+                                <span>Historia</span>
+                            </a>
+                        }
+
                     </div>
                 </div>
                 <form class="">

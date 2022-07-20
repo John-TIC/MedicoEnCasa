@@ -1,67 +1,72 @@
-var mymap = L.map('mimapa');
+let latitud = 0;
+let longitud = 0;
+let heightShow = 5;
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+// Funciona pra capturar las coordenadas actuales
+function InitLocations() {
+  if (!navigator.geolocation) {
+    return alert("Tu navegador no soporta el acceso a la ubicacion");
+  }
+
+  function onPosition(ubication) {
+    console.log("Ubication is: ", ubication);
+    latitud = ubication.coords.latitude;
+    longitud = ubication.coords.longitude;
+    heightShow = 12;
+  }
+
+  function onPositionError(error) {
+    console.log("Ubication error is: ", error);
+  }
+
+  const optionsPositions = {
+    enableHighAccuracy: true, // Alta precision
+    maximunAge: 0, // No cache
+    timeout: 5000, // Espera 5 segundos
+  };
+
+  navigator.geolocation.getCurrentPosition(
+    onPosition,
+    onPositionError,
+    optionsPositions
+  );
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve();
+    }, 2000)
+  });
+}
+
+//Carga mapa cuando carga el DOM
+document.addEventListener("DOMContentLoaded", async (e) => {
+  await InitLocations();
+
+  let mymap = L.map("mimapa").setView([latitud, longitud], heightShow);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(mymap);
+    attribution: "© OpenStreetMap",
+  }).addTo(mymap);
 
-var myIcon1 = L.icon({
-    iconUrl: '~/../icon/heart-beat.png',
+  var myIcon1 = L.icon({
+    iconUrl: "~/../icon/heart-beat.png",
     iconSize: [38, 38],
     iconAnchor: [38, 38],
     popupAnchor: [-10, -38],
-});
+  });
 
-let pacientes = [
-    {
-        nombres: "Rodolfo Hernandez",
-        diagnostico: "Cancer",
-        latitud: 6.2063,
-        longitud: -75.5951
+  $(function(){
+    $.get("/LocationsPacientes/").done(function (locationsPacientes){
 
-    },
-    {
-        nombres: "Federico Gutierrez",
-        diagnostico: "Gripe",
-        latitud: 6.2002,
-        longitud: -75.5751
-    },
-    {
-        nombres: "Gustavo Petro",
-        diagnostico: "Covid 19",
-        latitud: 6.212,
-        longitud: -75.5451
-    },
-    {
-        nombres: "Gutavo Bolivar",
-        diagnostico: "Sida",
-        latitud: 6.2112,
-        longitud: -75.5025
-    },
-]
-
-mymap.setView([6.2063, -75.5951], 12);
-
-var popup = L.popup();
-pacientes.forEach(p => {
-    let marker = L.marker([p.latitud, p.longitud], { icon: myIcon1 })
-        .addTo(mymap)
-        .bindPopup(`<b>${p.nombres}</b><br>${p.diagnostico}<br><a href="/Pacientes/Paciente/3">Ver paciente</a>`);
-});
-
-// function onMapClick(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(mymap);
-// }
-
-// function onPupupEvent(e) {
-//     //            console.log(e);
-//     console.log(e.popup._leaflet_id)
-// }
-
-// //        mymap.on('click', onMapClick);
-// mymap.on('popupopen', onPupupEvent);
-
-
+      console.log(locationsPacientes);
+      locationsPacientes.forEach((lp) => {
+        let marker = L.marker([lp.latitud, lp.longitud], { icon: myIcon1 })
+          .addTo(mymap)
+          .bindPopup(
+            `<b>${lp.fullName}</b><br>${lp.diagnostico}<br><a href="/Pacientes/Paciente/${lp.idPaciente}">Ver paciente</a>`
+          );
+      });
+    })
+  });
+})
