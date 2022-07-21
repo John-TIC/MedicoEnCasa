@@ -189,10 +189,5 @@ namespace HospiEnCasa.App.Persistencia
                 .FirstOrDefault();
 
         }
-
-        public IEnumerable<Paciente> GetPacientesPorMedico(int idMedico)
-        {
-            return _appContext.Pacientes.Where(p => p.MedicoId == idMedico).ToList();
-        }
     }
 }

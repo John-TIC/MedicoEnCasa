@@ -18,8 +18,5 @@ namespace HospiEnCasa.App.Persistencia
         Enfermera AsignarEnfermera(int idPaciente, int idEnfermera);
         Historia AsignarHistoria(int idPaciente, int idHistoria);
         Paciente GetHistoriaPaciente(int idPaciente);
-
-        IEnumerable<Paciente> GetPacientesPorMedico(int idMedico);
-
     }
 }

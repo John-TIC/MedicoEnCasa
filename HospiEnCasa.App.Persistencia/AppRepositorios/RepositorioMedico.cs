@@ -71,5 +71,10 @@ namespace HospiEnCasa.App.Persistencia
             }
             return medicoEncontrado;
         }
+
+        public IEnumerable<Paciente> GetPacientesPorMedico(int idMedico)
+        {
+            return _appContext.Pacientes.Where(p => p.MedicoId == idMedico).ToList();
+        }
     }
 }
