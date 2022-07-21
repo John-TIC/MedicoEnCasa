@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{handler?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home";
@@ -53,5 +53,5 @@
 <!-- Script para mostrar el mapa -->
 @section ScriptMap{
     <script src="~/lib/leaflet/leaflet.js"></script>
-    <script src="~/js/script-map.js" asp-append-version="true"></script>
+    <script src="~/js/script-map.js" type="module" asp-append-version="true"></script>
     }

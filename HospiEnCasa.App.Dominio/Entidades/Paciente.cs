@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HospiEnCasa.App.Dominio
 {
@@ -10,10 +11,14 @@ namespace HospiEnCasa.App.Dominio
         [StringLength(50, MinimumLength = 5, ErrorMessage = "{0} debe tener entre {2} y {1} caracteres")]
         public string Direccion { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0,0000}", ApplyFormatInEditMode = true)]
         [Range(-90.0001, 90.0001, ErrorMessage = "{0} debe estar entre {1} y {2}")]
+        [Column(TypeName = "decimal(18, 4)")]
         public decimal? Latitud { get; set; }
-
+        
+        [DisplayFormat(DataFormatString = "{0,0000}", ApplyFormatInEditMode = true)]
         [Range(-180.0001, 180.0001, ErrorMessage = "{0} debe estar entre {1} y {2}")]
+        [Column(TypeName = "decimal(18, 4)")]
         public decimal? Longitud { get; set; }
 
         [Required(ErrorMessage = "Ingrese una {0}")]

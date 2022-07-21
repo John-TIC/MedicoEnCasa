@@ -1,7 +1,7 @@
-﻿@page
-@model HospiEnCasa.App.Presentacion.Pages.PacientesModel
+@page "{idMedico:int}"
+@model HospiEnCasa.App.Presentacion.Pages.Medicos.PacientesMedicoModel
 @{
-    ViewData["Title"] = "Pacientes";
+    ViewData["Title"] = "Pacientes por Medico";
 }
 
 <!-- Start Ppal Sections -->
@@ -12,11 +12,11 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area=""
+                        <a class="nav-link active disabled" aria-current="page" asp-area=""
                             asp-page="/Pacientes/Pacientes">Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
+                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -29,8 +29,10 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos">Medicos</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos/Medico">Medico</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    Pacientes
+                    Pacientes Medico
                 </li>
             </ol>
         </nav>
@@ -39,7 +41,7 @@
         <section>
             <!-- Start Title and form search section -->
             <div class="d-flex justify-content-between align-items-center pb-4">
-                <h1 class="title-section">Listado de Pacientes</h1>
+                <h1 class="title-section">Listado Pacientes Asignados</h1>
                 <form class="row row-cols-lg-auto g-3">
                     <div class="col-auto">
                         <label class="visually-hidden" for="specificCriteriaType">Criterio</label>
@@ -69,40 +71,39 @@
                     <th>Apellidos</th>
                     <th>Telefono</th>
                     <th>Direccion</th>
+                    <th>Diagnostico</th>
                     <th>Accion</th>
                 </thead>
                 <tbody>
 
-                    @if (Model.Pacientes == null)
+                    @if (Model.PacientesMedico == null)
                     {
                         <tr>
-                            <td colspan="6" class="table-active">
-                                <span><strong>No se encontraron dados de Pacientes en el sistema</strong></span>
+                            <td colspan="7" class="table-active">
+                                <span><strong>No se encontraron datos de Pacientes asignados en el sistema</strong></span>
                             </td>
                         </tr>
                     }
                     else
                     {
-                        @foreach (var paciente in Model.Pacientes)
+                        @foreach (var pacienteMedico in Model.PacientesMedico)
                         {
                             <tr>
-                                <td>@paciente.Identificacion</td>
-                                <td>@paciente.Nombres</td>
-                                <td>@paciente.Apellidos</td>
-                                <td>@paciente.NumeroTelefono</td>
-                                <td>@paciente.Direccion</td>
+                                <td>@pacienteMedico.Identificacion</td>
+                                <td>@pacienteMedico.Nombres</td>
+                                <td>@pacienteMedico.Apellidos</td>
+                                <td>@pacienteMedico.NumeroTelefono</td>
+                                <td>@pacienteMedico.Direccion</td>
+                                <td>@pacienteMedico.Historia.Diagnostico</td>
                                 <td>
-                                    <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@paciente.Id">
+                                    <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@pacienteMedico.Id">
                                         <i class="fa-solid fa-eye icon-view mx-1"></i>
                                     </a>
-                                    <a  title="Editar" href="#">
-                                        <i class="fa-solid fa-pen-to-square icon-edit mx-1"></i>
-                                    </a>
-                                    <a title="Historia" asp-area="" asp-page="/Historias/Index" asp-route-idPaciente="@paciente.Id">
-                                        <i class="fa-solid fa-clipboard-user icon-signal mx-1" ></i>
+                                    <a title="Historia" asp-area="" asp-page="/Historias" asp-route-idPaciente="@pacienteMedico.Id">
+                                        <i class="fa-solid fa-file-medical icon-signal mx-1"></i>
                                     </a>
                                     <a title="Signos" href="#">
-                                        <i class="fa-solid fa-file-waveform icon-signal mx-1" ></i>
+                                        <i class="fa-solid fa-file-waveform icon-signal mx-1"></i>
                                     </a>
                                 </td>
                             </tr>

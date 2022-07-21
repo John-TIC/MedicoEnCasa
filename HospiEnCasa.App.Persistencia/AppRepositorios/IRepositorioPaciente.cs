@@ -7,6 +7,7 @@ namespace HospiEnCasa.App.Persistencia
     public interface IRepositorioPaciente
     {
         IEnumerable<Paciente> GetAllPacientes();
+        IEnumerable<Paciente> GetAllPacientesAndHistoria();
         IEnumerable<Paciente> GetPacientesXFiltro(string filtro, string criterio);
         Paciente AddPaciente(Paciente paciente);
         Paciente UpdatePaciente(Paciente paciente);
@@ -16,5 +17,9 @@ namespace HospiEnCasa.App.Persistencia
         FamiliarDesignado AsignarFamiliarDesignado(int idPaciente, int idFamiliar);
         Enfermera AsignarEnfermera(int idPaciente, int idEnfermera);
         Historia AsignarHistoria(int idPaciente, int idHistoria);
+        Paciente GetHistoriaPaciente(int idPaciente);
+
+        IEnumerable<Paciente> GetPacientesPorMedico(int idMedico);
+
     }
 }
