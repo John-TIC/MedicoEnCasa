@@ -52,7 +52,8 @@
                     </div>
                 </div>
 
-                <form class="">
+                <form class="" method="post">
+                    <input type="hidden" asp-for="FamiliarDesignado.Id"/>
                     <fieldset class="row g-3 py-3">
                         <div class="col-lg-6">
                             <label for="inputPaciente" class="form-label">Paciente a Cuidar</label>
@@ -75,7 +76,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.NumeroTelefono" for="inputTelefono" class="form-label">Telefono</label>
-                            <input asp-for="FamiliarDesignado.NumeroTelefono" type="tel" class="form-control" readonly>
+                            <input asp-for="FamiliarDesignado.NumeroTelefono" type="tel" class="form-control" >
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.Genero" class="form-label">Genero</label>
@@ -91,13 +92,12 @@
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.Correo" class="form-label">E-Mail</label>
-                            <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control" readonly>
+                            <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control" >
                         </div>
                     </fieldset>
                     <fieldset class="row g-3 py-3">
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary me-2" disabled>Registrar</button>
-                        <button type="submit" class="btn btn-primary" disabled>Actualizar</button>
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Actualizar</button>
                     </div>
                     </fieldset>
                 </form>
@@ -109,4 +109,11 @@
     <!-- End Main section -->
 </div>
 <!-- End Ppal Sections -->
-
+@if (@Model.IsUpdateFamiliar)
+{
+  <partial name="_ModalView" for="ModalInfo" />
+  @section ScriptModal{
+    <partial name="_ModalViewScript" />
+  }
+}
+<!-- End Modal-->
