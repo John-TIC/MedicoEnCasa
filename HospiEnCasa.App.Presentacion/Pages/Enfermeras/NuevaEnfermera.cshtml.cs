@@ -28,9 +28,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
         public IActionResult OnPost(){
             if(!ModelState.IsValid)
                 return Page();
-            
             Enfermera nuevaEnfermera = repositorioEnfermera.AddEnfermera(Enfermera);
-        
             if(nuevaEnfermera == null){
                 return RedirectToPage("Error");
             }
