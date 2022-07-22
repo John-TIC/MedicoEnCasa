@@ -103,21 +103,12 @@
 <!-- End Ppal Sections -->
 
 <!-- Start Modal-->
-@if (@ViewData["Message"] != null)
+@if (@Model.IsCreateEnfermera)
 {
-
-    <partial name="_ModalView" />
-
-
+    <partial name="_ModalView" for="ModalInfo"/>
     @section ScriptModal{
     <partial name="_ModalViewScript" />
-        }
-}
-else
-{
-    @section ScriptModal{
-        }
-
+   }
 }
 <!-- End Modal-->
 
