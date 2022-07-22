@@ -14,10 +14,12 @@
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
                         <a class="nav-link active disabled" aria-current="page" asp-area=""
-                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
+                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i
+                                class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i class="fas fa-user-plus"></i> Registrar</a>
+                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i
+                                class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -81,22 +83,23 @@
                             <fieldset class="row g-3 py-3">
                                 <legend>Nuevo Signo Vital</legend>
                                 <div class="row pt-2">
-                                    <div class="col-lg-4">
-                                        <label asp-for="Paciente.SignosVitales" class="sr-only">Signo Vital</label>
-                                        <select asp-for="Paciente.SignosVitales" class="form-select" 
-                                            asp-items="Html.GetEnumSelectList<TipoSigno>()" id="specificCriteriaType">
-                                            <option selected>Choose...</option>
-                                    </select>
-                                    </div>
                                     <div class="col-lg-3">
-                                        <label asp-for="SignoVital.Valor" class="sr-only">Valor</label>
-                                        <input asp-for="SignoVital.Valor" class="form-control">
-                                        <span asp-validation-for="SignoVital.Valor" class="text-danger"></span>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <label asp-for="SignoVital.FechaHora" class="sr-only">Fecha y Hora Signo Vital</label>
+                                        <label asp-for="SignoVital.FechaHora" class="sr-only">Fecha y Hora Signo
+                                            Vital</label>
                                         <input asp-for="SignoVital.FechaHora" class="form-control">
                                         <span asp-validation-for="SignoVital.FechaHora" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label asp-for="SignoVital.Signo" class="sr-only">Signo Vital</label>
+                                        <select asp-for="SignoVital.Signo" class="form-select"
+                                            asp-items="Html.GetEnumSelectList<TipoSigno>()" id="specificCriteriaType">
+                                            <option selected value="">Choose...</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label asp-for="SignoVital.Valor" class="sr-only">Valor</label>
+                                        <input asp-for="SignoVital.Valor" class="form-control" placeholder="Valor">
+                                        <span asp-validation-for="SignoVital.Valor" class="text-danger"></span>
                                     </div>
                                     <div class="col-lg-2">
                                         <button type="submit" class="btn btn-primary">Registrar</button>
