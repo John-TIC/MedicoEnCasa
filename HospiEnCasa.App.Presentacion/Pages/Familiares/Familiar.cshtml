@@ -15,10 +15,10 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="" disabled>Registrar</a>
+                        <a class="nav-link" asp-area="" asp-page="" disabled><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -111,9 +111,9 @@
 <!-- End Ppal Sections -->
 @if (@Model.IsUpdateFamiliar)
 {
-  <partial name="_ModalView" for="ModalInfo" />
-  @section ScriptModal{
-    <partial name="_ModalViewScript" />
-  }
+    <partial name="_ModalView" for="ModalInfo" />
+    @section ScriptModal{
+        <partial name="_ModalViewScript" />
+    }
 }
 <!-- End Modal-->
