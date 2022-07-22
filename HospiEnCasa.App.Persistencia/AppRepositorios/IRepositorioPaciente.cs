@@ -8,6 +8,7 @@ namespace HospiEnCasa.App.Persistencia
     {
         IEnumerable<Paciente> GetAllPacientes();
         IEnumerable<Paciente> GetAllPacientesAndHistoria();
+        IEnumerable<Paciente> GetAllPacientesAndSignosVitales();
         IEnumerable<Paciente> GetPacientesXFiltro(string filtro, string criterio);
         Paciente AddPaciente(Paciente paciente);
         Paciente UpdatePaciente(Paciente paciente);
@@ -18,5 +19,6 @@ namespace HospiEnCasa.App.Persistencia
         Enfermera AsignarEnfermera(int idPaciente, int idEnfermera);
         Historia AsignarHistoria(int idPaciente, int idHistoria);
         Paciente GetHistoriaPaciente(int idPaciente);
+        Paciente GetSignosVitalesPaciente(int idPaciente);
     }
 }

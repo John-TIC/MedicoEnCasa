@@ -73,7 +73,8 @@
                             </a>
                         }
 
-                        <a class="navbar-brand logo" href="#">
+                        <a class="navbar-brand logo" asp-area="" asp-page="/SignosVitales/SignosVitales"
+                            asp-route-idPaciente="@Model.Paciente.Id">
                             <i class="fa-solid fa-file-waveform fa-xl"></i>
                             <span>Signos Vitales</span>
                         </a>

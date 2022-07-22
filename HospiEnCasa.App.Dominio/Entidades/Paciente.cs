@@ -41,6 +41,7 @@ namespace HospiEnCasa.App.Dominio
         public int? HistoriaId { get; set; }
         public Historia Historia { get; set; }
 
+        // public int? SignosVitalesId { get; set; }
         public List<SignoVital> SignosVitales { get; set; }
     }
 }

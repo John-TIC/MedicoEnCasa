@@ -25,6 +25,9 @@ namespace HospiEnCasa.App.Presentacion.Pages
         [BindProperty]
         public SugerenciaCuidado SugerenciaCuidado {get; set;}
 
+        // [BindProperty]
+        // public SignoVital SignoVital {get; set;}
+
         public bool IsCreatePaciente { get; set; }
         public ModalInfo ModalInfo {get; set; }
 
@@ -45,12 +48,13 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
             if (!ModelState.IsValid)
                 return Page();
-            
             Paciente.Historia = Historia;
             Historia.Sugerencias = new List<SugerenciaCuidado>{
                 SugerenciaCuidado
             };
-                
+            // Paciente.SignosVitales = new List<SignoVital>{
+            //     SignoVital
+            // };
             Paciente nuevoPaciente = repositorioPaciente.AddPaciente(Paciente);
 
             if(nuevoPaciente == null)

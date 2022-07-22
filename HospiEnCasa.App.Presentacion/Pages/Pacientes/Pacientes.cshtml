@@ -101,7 +101,7 @@
                                     <a title="Historia" asp-area="" asp-page="/Historias/Index" asp-route-idPaciente="@paciente.Id">
                                         <i class="fa-solid fa-clipboard-user icon-signal mx-1" ></i>
                                     </a>
-                                    <a title="Signos" href="#">
+                                    <a title="Signos" asp-area="" asp-page="/SignosVitales/SignosVitales" asp-route-idPaciente="@paciente.Id">
                                         <i class="fa-solid fa-file-waveform icon-signal mx-1" ></i>
                                     </a>
                                 </td>
