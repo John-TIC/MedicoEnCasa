@@ -47,10 +47,22 @@
                         <img src="~/avatar/johansson.png" class="col-lg-5 img-perfil" alt="..." />
                     </div>
                     <div class="col-lg-6 d-flex flex-lg-column">
-                        <a class="navbar-brand logo" href="#">
-                            <i class="fa-solid fa-user-doctor fa-xl"></i>
-                            <span>Medico</span>
-                        </a>
+                        @if (@Model.Paciente.MedicoId == null)
+                        {
+                            <a class="navbar-brand icon-without-data" asp-area="" asp-page="/Medicos/AsignaMedico1"
+                            asp-route-idPaciente="@Model.Paciente.Id">
+                                <i class="fa-solid fa-user-doctor fa-xl"></i>
+                                <span>Medico</span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a class="navbar-brand icon-with-data" asp-area="" asp-page="/Medicos/Medico"
+                            asp-route-idPaciente="@Model.Paciente.Id">
+                                <i class="fa-solid fa-person-half-dress fa-xl"></i>
+                                <span>Medico</span>
+                            </a>
+                        }
                         <a class="navbar-brand logo" href="#">
                             <i class="fa-solid fa-user-nurse fa-xl"></i>
                             <span>Enfermera</span>

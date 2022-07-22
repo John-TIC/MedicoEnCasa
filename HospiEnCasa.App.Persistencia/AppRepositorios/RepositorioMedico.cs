@@ -71,5 +71,38 @@ namespace HospiEnCasa.App.Persistencia
             }
             return medicoEncontrado;
         }
+
+        IEnumerable<Medico> IRepositorioMedico.GetMedicosXFiltro(string filtro, string criterio)
+        {
+            var medicos = _appContext.Medicos; 
+            if (medicos != null) 
+            {
+                if (!String.IsNullOrEmpty(filtro)) 
+                {
+                    if (criterio == "1")
+                    {
+                        return medicos.Where(s => s.Identificacion.Contains(filtro));
+                    }
+                    else
+                    {
+                        if (criterio == "2")
+                        {
+                            return medicos.Where(s => s.Nombres.Contains(filtro));
+                        }
+                        else
+                        {
+                            if (criterio == "3")
+                            {
+                                return medicos.Where(s => s.Especialidad.Contains(filtro));
+                            }
+                            else return medicos;
+                        }
+                    }
+                }
+                else return medicos;
+            }
+            else return medicos;
+        } 
+
     }
 }

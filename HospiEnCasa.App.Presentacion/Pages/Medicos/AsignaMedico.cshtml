@@ -1,4 +1,101 @@
-﻿@page
+﻿@page "{id:int}"
+@using HospiEnCasa.App.Dominio
 @model HospiEnCasa.App.Presentacion.Pages.AsignaMedicoModel
 @{
+    ViewData["Title"] = "Asigna Médico";
 }
+
+<!-- Start Ppal Sections -->
+<div class="d-flex flex-lg-row flex-column mt-5">
+    <!-- Start Submenu vertical -->
+    <aside class="col-lg-2 pt-5 ps-3 bg-light">
+        <div class="container">
+            <nav id="nav-second" class="navbar navbar-light bg-light">
+                <ul class="nav flex-lg-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Medicos/Medicos">Listado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-page="/Medicos/AsignaMedico" disabled>Registrar</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- End Submenu vertical -->
+    <!-- Start Main section -->
+    <main class="container-fluid pt-5">
+        <!-- Start Breadcrumb section -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Pacientes">Pacientes</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Pacientes/Paciente" asp-route-idPaciente="@Model.IdPaciente">Paciente</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    Asignar Médico
+                </li>
+            </ol>
+        </nav>
+        <!-- End Breadcrumb section -->
+        <!-- Start Content section -->
+        <section class="">
+            <!-- Start Title and form search section -->
+            <div class="container pb-4">
+                <h1 class="title-section">Asignar Médico</h1>
+                <form class="" method="post">
+                    <fieldset class="row g-3 py-3">
+                        <div class="col-lg-6">
+                            <label for="inputPaciente" class="form-label">Paciente a Cuidar</label>
+                            <input class="form-control" type="text" idPaciente="inputPaciente" readonly value="@ViewData["pacienteAAsignar"] ">
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Medico.Identificacion" class="form-label">Identificacion Médico a Asignar</label>
+                            <input asp-for="Medico.Identificacion" class="form-control" name="medicoid">
+                            <span asp-validation-for="Medico.Identificacion" class="text-danger"></span>
+                        </div>
+                    </fieldset> 
+                    <div class="d-flex justify-content-end py-3">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Buscar/Asignar</button>
+                    </div>
+                    <fieldset class="row g-3 py-3">
+                        <div class="col-lg-6">
+                            <label asp-for="Medico.Nombres" class="form-label">Nombres</label>
+                            <input asp-for="Medico.Nombres" class="form-control" readonly>
+                            <span asp-validation-for="Medico.Nombres" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Medico.Apellidos" class="form-label">Apellidos</label>
+                            <input asp-for="Medico.Apellidos" class="form-control" readonly>
+                            <span asp-validation-for="Medico.Apellidos" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Medico.Especialidad" class="form-label">Especialidad</label>
+                            <input asp-for="Medico.Especialidad" class="form-control" readonly>
+                            <span asp-validation-for="Medico.Especialidad" class="text-danger"></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <label asp-for="Medico.RegistroRethus" for="inputTelefono" class="form-label">Registro Rethus</label>
+                            <input asp-for="Medico.RegistroRethus" type="tel" class="form-control" readonly>
+                            <span asp-validation-for="Medico.RegistroRethus" class="text-danger"></span>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- End Title and form search section -->
+        </section>
+        <!-- Start Content section -->
+    </main>
+    <!-- End Main section -->
+</div>
+<!-- End Ppal Sections -->
+
+<!-- Start Modal--> <!-- 
+a@if (a@Model.IsCreateFamiliar)
+{
+  <partial name="_ModalView" for="ModalInfo" />
+  a@section ScriptModal{
+    <partial name="_ModalViewScript" />
+  }
+} -->
+<!-- End Modal-->
+

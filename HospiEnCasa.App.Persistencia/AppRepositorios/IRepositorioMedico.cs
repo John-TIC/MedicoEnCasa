@@ -11,5 +11,6 @@ namespace HospiEnCasa.App.Persistencia
         IEnumerable<Medico> GetAllMedicos();
         Medico GetMedico(int idMedico);
         Medico UpdateMedico(Medico medico);
+        IEnumerable<Medico> GetMedicosXFiltro(string filtro, string criterio);
     }
 }
