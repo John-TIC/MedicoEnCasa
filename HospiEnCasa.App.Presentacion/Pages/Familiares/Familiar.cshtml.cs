@@ -1,8 +1,13 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
+using HospiEnCasa.App.Presentacion.Model;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -11,6 +16,10 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         [BindProperty]
         public FamiliarDesignado FamiliarDesignado { get; set; }
+
+        public bool IsUpdateFamiliar { get; set; }
+
+        public ModalInfo ModalInfo { get; set; }
 
         [TempData]
         public int IdPaciente { get; set; }
@@ -41,5 +50,35 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
             return Page();
         }
+        //Actualizar Familiar
+        public IActionResult OnPost()
+
+        {
+            IsUpdateFamiliar = false;
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            if (FamiliarDesignado.Id > 0)
+            {
+                FamiliarDesignado = repositorioFamiliar.UpdateFamiliarDesignado(FamiliarDesignado);
+                if (FamiliarDesignado == null)
+                    return RedirectToPage("Error");
+
+                ModalInfo = new ModalInfo
+                {
+                    TitleModal = " Familiar Actualizado",
+                    MsgModal = "Familiar " + FamiliarDesignado.Nombres + " " + FamiliarDesignado.Apellidos + " Actualizado correctamente",
+                    PageRedirect = "/Familiares/Familiar"
+                };
+
+                IsUpdateFamiliar = true;
+
+            }
+
+            return Page();
+        }
+
     }
 }

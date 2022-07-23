@@ -15,10 +15,10 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="" disabled>Registrar</a>
+                        <a class="nav-link" asp-area="" asp-page="" disabled><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -47,12 +47,13 @@
                 <div class="row d-flex justify-content-lg-start align-items-center">
                     <div class="col-lg-6">
                         <img src="~/avatar/johansson.png"
-                             class="col-lg-5 img-perfil"
-                             alt="..." />
+                            class="col-lg-5 img-perfil"
+                            alt="..." />
                     </div>
                 </div>
 
-                <form class="">
+                <form class="" method="post">
+                    <input type="hidden" asp-for="FamiliarDesignado.Id"/>
                     <fieldset class="row g-3 py-3">
                         <div class="col-lg-6">
                             <label for="inputPaciente" class="form-label">Paciente a Cuidar</label>
@@ -75,7 +76,7 @@
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.NumeroTelefono" for="inputTelefono" class="form-label">Telefono</label>
-                            <input asp-for="FamiliarDesignado.NumeroTelefono" type="tel" class="form-control" readonly>
+                            <input asp-for="FamiliarDesignado.NumeroTelefono" type="tel" class="form-control" >
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.Genero" class="form-label">Genero</label>
@@ -91,12 +92,14 @@
                         </div>
                         <div class="col-lg-6">
                             <label asp-for="FamiliarDesignado.Correo" class="form-label">E-Mail</label>
-                            <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control" readonly>
+                            <input asp-for="FamiliarDesignado.Correo" type="email" class="form-control" >
                         </div>
                     </fieldset>
-                    <div class="d-flex justify-content-end py-3">
-                        <button type="submit" class="btn btn-primary" disabled>Registrar</button>
+                    <fieldset class="row g-3 py-3">
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Actualizar</button>
                     </div>
+                    </fieldset>
                 </form>
             </div>
             <!-- End Title and form search section -->
@@ -106,4 +109,11 @@
     <!-- End Main section -->
 </div>
 <!-- End Ppal Sections -->
-
+@if (@Model.IsUpdateFamiliar)
+{
+    <partial name="_ModalView" for="ModalInfo" />
+    @section ScriptModal{
+        <partial name="_ModalViewScript" />
+    }
+}
+<!-- End Modal-->

@@ -13,10 +13,10 @@
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
                         <a class="nav-link active disabled" aria-current="page" asp-area=""
-                            asp-page="/Pacientes/Pacientes">Listado</a>
+                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
+                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -30,7 +30,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos">Medicos</a></li>
-                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos/Medico">Medico</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos/Medico" asp-route-id="@Model.Medico.Id">Medico</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
                     Pacientes Medico
                 </li>
@@ -39,30 +39,64 @@
         <!-- End Breadcrumb section -->
         <!-- Start Content section -->
         <section>
-            <!-- Start Title and form search section -->
-            <div class="d-flex justify-content-between align-items-center pb-4">
-                <h1 class="title-section">Listado Pacientes Asignados</h1>
-                <form class="row row-cols-lg-auto g-3">
-                    <div class="col-auto">
-                        <label class="visually-hidden" for="specificCriteriaType">Criterio</label>
-                        <select class="form-select" name="criterio" id="specificCriteriaType">
-                            <option selected>Choose...</option>
-                            <option value="1">Identificación</option>
-                            <option value="2">Nombres</option>
-                            <option value="3">Teléfono</option>
-                        </select>
+            <!-- Start Title and form Paciente, form search for Medico information section -->
+            <div class="container-fluid">
+                <h1 class="title-section pb-3">Listado Pacientes Asignados</h1>
+                <div class="row pb-3 pt-2">
+                    <div class="col-lg-7">
+                        <!-- Start Title and new form Sugerencia Cuidado section -->
+                        <form class="" method="post">
+                            <fieldset class="row g-3 py-3">
+                                <legend>Informacion Medico</legend>
+                                <div class="row pt-2">
+                                    <div class="col-lg-8">
+                                        <label asp-for="FullNameMedico" class="sr-only">Nombres</label>
+                                        <input asp-for="FullNameMedico" class="form-control" readonly />
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label asp-for="Medico.Especialidad" class="sr-only">Especialidad</label>
+                                        <input asp-for="Medico.Especialidad" class="form-control" readonly />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <!-- End Title and new form Sugerencia Cuidado section -->
+
                     </div>
-                    <div class="col-auto">
-                        <label class="visually-hidden" for="specificCriteria">Name</label>
-                        <input type="text" class="form-control" id="specificCriteria" placeholder="Por identificación?"
-                            name="filtroB" />
+                    <div class="col-lg-5">
+                        <!-- Start form search Sugerencia Cuidado section -->
+                        <form class="">
+                            <fieldset class="row g-3 py-3">
+                                <legend>Filtro Pacientes</legend>
+                                <div class="row pt-2">
+                                    <div class="col-lg-4">
+                                        <label class="sr-only" for="specificCriteriaType">Criterio</label>
+                                        <select class="form-select" id="specificCriteriaType">
+                                            <option selected>Choose...</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <label class="sr-only" for="specificCriteria">Name</label>
+                                        <input type="text" class="form-control" id="specificCriteria"
+                                            placeholder="Por nombre?" />
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <button type="submit" class="btn btn-primary">Buscar</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <!-- End Title and form search Sugerencia Cuidado section -->
                     </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary">Buscar</button>
-                    </div>
-                </form>
+                </div>
             </div>
-            <!-- End Title and form search section -->
+            <!-- End Title and form Paciente, form search for Medico information section -->
+
+            <br>
+
             <!-- Start Table section -->
             <table class="table table-striped table-hover align-middle caption-top text-center">
                 <thead>
@@ -99,7 +133,8 @@
                                     <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@pacienteMedico.Id">
                                         <i class="fa-solid fa-eye icon-view mx-1"></i>
                                     </a>
-                                    <a title="Historia" asp-area="" asp-page="/Historias" asp-route-idPaciente="@pacienteMedico.Id">
+                                    <a title="Historia" asp-area="" asp-page="/Historias"
+                                asp-route-idPaciente="@pacienteMedico.Id">
                                         <i class="fa-solid fa-file-medical icon-signal mx-1"></i>
                                     </a>
                                     <a title="Signos" href="#">

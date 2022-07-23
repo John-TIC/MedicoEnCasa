@@ -14,10 +14,10 @@
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" asp-area=""
-                            asp-page="/Pacientes/Pacientes">Listado</a>
+                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
+                        <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -85,7 +85,8 @@
                             </a>
                         }
 
-                        <a class="navbar-brand logo" href="#">
+                        <a class="navbar-brand logo" asp-area="" asp-page="/SignosVitales/SignosVitales"
+                            asp-route-idPaciente="@Model.Paciente.Id">
                             <i class="fa-solid fa-file-waveform fa-xl"></i>
                             <span>Signos Vitales</span>
                         </a>
@@ -151,11 +152,11 @@
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Latitud" class="form-label">Latitud</label>
-                            <input asp-for="Paciente.Latitud" class="form-control"  readonly/>
+                            <input asp-for="Paciente.Latitud" class="form-control" />
                         </div>
                         <div class="col-lg-3">
                             <label asp-for="Paciente.Longitud" class="form-label">Longitud</label>
-                            <input asp-for="Paciente.Longitud" class="form-control" readonly />
+                            <input asp-for="Paciente.Longitud" class="form-control" />
                         </div>
                     </fieldset>
                     <div class="d-flex justify-content-end py-3">
@@ -173,9 +174,9 @@
 <!-- Start Modal-->
 @if (@Model.IsUpdatePaciente)
 {
-  <partial name="_ModalView" for="ModalInfo" />
-  @section ScriptModal{
-    <partial name="_ModalViewScript" />
-  }
+    <partial name="_ModalView" for="ModalInfo" />
+    @section ScriptModal{
+        <partial name="_ModalViewScript" />
+    }
 }
 <!-- End Modal-->

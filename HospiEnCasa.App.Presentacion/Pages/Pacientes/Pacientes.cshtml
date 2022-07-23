@@ -13,10 +13,10 @@
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" asp-area=""
-                            asp-page="/Pacientes/Pacientes">Listado</a>
+                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
+                        <a class="nav-link" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -101,7 +101,7 @@
                                     <a title="Historia" asp-area="" asp-page="/Historias/Index" asp-route-idPaciente="@paciente.Id">
                                         <i class="fa-solid fa-clipboard-user icon-signal mx-1" ></i>
                                     </a>
-                                    <a title="Signos" href="#">
+                                    <a title="Signos" asp-area="" asp-page="/SignosVitales/SignosVitales" asp-route-idPaciente="@paciente.Id">
                                         <i class="fa-solid fa-file-waveform icon-signal mx-1" ></i>
                                     </a>
                                 </td>

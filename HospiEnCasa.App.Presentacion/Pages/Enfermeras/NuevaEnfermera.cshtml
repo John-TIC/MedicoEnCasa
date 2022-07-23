@@ -13,10 +13,10 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Enfermeras/Enfermeras">Listado</a>
+                        <a class="nav-link" asp-area="" asp-page="/Enfermeras/Enfermeras"><i class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/NuevaEnfermera">Registrar</a>
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Enfermeras/NuevaEnfermera" style="color: var(--hospital-green);"><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -51,7 +51,7 @@
                 <div class="col-lg-6">
                   <label asp-for="Enfermera.Identificacion" class="form-label">Identificacion</label>
                   <input asp-for="Enfermera.Identificacion" class="form-control" required>
-                   <span asp-validation-for="Enfermera.Identificacion" class="text-danger"></span>
+                  <span asp-validation-for="Enfermera.Identificacion" class="text-danger"></span>
                 </div>
 
                 <div class="col-lg-6">
@@ -73,14 +73,14 @@
             <div class="col-lg-6">
                   <label asp-for="Enfermera.Genero" class="form-label">Genero</label>
                   <select asp-for="Enfermera.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()">
-                     <option selected>Choose...</option>
+                    <option selected>Choose...</option>
                   </select>
                 </div>
               </fieldset>
               <fieldset class="row g-3 py-3">
                 <div class="col-lg-6">
                   <label asp-for="Enfermera.TarjetaProfesional" class="form-label">Tarjeta Profesional</label>
-                  <input Enfermera.TarjetaProfesional" class="form-control" />
+                  <input asp-for="Enfermera.TarjetaProfesional" class="form-control" />
                   <span asp-validation-for="Enfermera.TarjetaProfesional" class="text-danger"></span>
                 </div>
                 <div class="col-lg-6">
@@ -103,21 +103,12 @@
 <!-- End Ppal Sections -->
 
 <!-- Start Modal-->
-@if (@ViewData["Message"] != null)
+@if (@Model.IsCreateEnfermera)
 {
-
-    <partial name="_ModalView" />
-
-
+    <partial name="_ModalView" for="ModalInfo"/>
     @section ScriptModal{
     <partial name="_ModalViewScript" />
-        }
-}
-else
-{
-    @section ScriptModal{
-        }
-
+   }
 }
 <!-- End Modal-->
 

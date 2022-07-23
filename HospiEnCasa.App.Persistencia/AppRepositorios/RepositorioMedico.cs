@@ -54,7 +54,7 @@ namespace HospiEnCasa.App.Persistencia
             return _appContext.Medicos.FirstOrDefault(m => m.Id == idMedico);
         }
 
-        public Medico UpdateMedico(Medico medico)
+         public Medico UpdateMedico(Medico medico)
         {
             var medicoEncontrado = _appContext.Medicos.FirstOrDefault(m => m.Id == medico.Id);
             if (medicoEncontrado != null)
@@ -104,5 +104,9 @@ namespace HospiEnCasa.App.Persistencia
             else return medicos;
         } 
 
+        public IEnumerable<Paciente> GetPacientesPorMedico(int idMedico)
+        {
+            return _appContext.Pacientes.Where(p => p.MedicoId == idMedico).ToList();
+        }
     }
 }

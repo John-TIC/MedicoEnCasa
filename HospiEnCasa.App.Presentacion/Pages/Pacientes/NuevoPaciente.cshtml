@@ -13,10 +13,10 @@
       <nav id="nav-second" class="navbar navbar-light bg-light">
         <ul class="nav flex-lg-column">
           <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-page="/Pacientes/Pacientes">Listado</a>
+            <a class="nav-link" asp-area="" asp-page="/Pacientes/Pacientes"><i class="fas fa-list"></i> Listado</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/NuevoPaciente">Registrar</a>
+            <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Pacientes/NuevoPaciente" style="color: var(--hospital-green);"><i class="fas fa-user-plus"></i> Registrar</a>
           </li>
         </ul>
       </nav>
@@ -128,6 +128,25 @@
               <span asp-validation-for="SugerenciaCuidado.Descripcion" class="text-danger"></span>
             </div>
           </fieldset>
+          @* <fieldset class="row g-3 py-3">
+            <legend class="">Informacion Signos Vitales</legend>
+            <div class="col-lg-4">
+              <label asp-for="Paciente.SignosVitales" class="form-label">Signo Vital</label>
+              <select asp-for="Paciente.SignosVitales" class="form-select" asp-items="Html.GetEnumSelectList<TipoSigno>()">
+                <option selected>Choose...</option>
+              </select>
+            </div>
+            <div class="col-lg-4">
+              <label asp-for="SignoVital.Valor" class="form-label">Valor</label>
+              <input asp-for="SignoVital.Valor" class="form-control">
+              <span asp-validation-for="SignoVital.Valor" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+              <label asp-for="SignoVital.FechaHora" class="form-label">Fecha y Hora Signo Vital</label>
+              <input asp-for="SignoVital.FechaHora" class="form-control">
+              <span asp-validation-for="SignoVital.FechaHora" class="text-danger"></span>
+            </div>
+          </fieldset> *@
           <div class="d-flex justify-content-end py-3">
             <button type="submit" class="btn btn-primary">Registrar</button>
           </div>

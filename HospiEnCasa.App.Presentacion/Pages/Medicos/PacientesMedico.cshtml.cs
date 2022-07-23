@@ -12,25 +12,27 @@ namespace HospiEnCasa.App.Presentacion.Pages.Medicos
 {
     public class PacientesMedicoModel : PageModel
     {
-
         public Medico Medico { get; set; }
-
+        public string FullNameMedico {get; set;}
         public IEnumerable<Paciente> PacientesMedico { get; set; }
 
-        private readonly IRepositorioPaciente repositorioPaciente;
+        private readonly IRepositorioMedico repositorioMedico;
 
-        public PacientesMedicoModel(IRepositorioPaciente repositorioPaciente)
+        public PacientesMedicoModel(IRepositorioMedico repositorioMedico)
         {
-            this.repositorioPaciente = repositorioPaciente;
+            this.repositorioMedico = repositorioMedico;
         }
 
         public IActionResult OnGet(int idMedico)
         {
-            PacientesMedico = repositorioPaciente.GetPacientesPorMedico(idMedico);
+            Medico = repositorioMedico.GetMedico(idMedico);
+            PacientesMedico = repositorioMedico.GetPacientesPorMedico(idMedico);
             
             if(PacientesMedico == null || PacientesMedico.Count() == 0)
                 PacientesMedico = null;
 
+            FullNameMedico = Medico.Nombres + " " + Medico.Apellidos;
+            
             return Page();
             
         }

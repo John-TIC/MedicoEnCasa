@@ -41,12 +41,17 @@ namespace HospiEnCasa.App.Persistencia
             return _appContext.Pacientes.Include(p => p.Historia).ToList();
         }
 
+        public IEnumerable<Paciente> GetAllPacientesAndSignosVitales()
+        {
+            return _appContext.Pacientes.Include(p => p.SignosVitales).ToList();
+        }
+
         IEnumerable<Paciente> IRepositorioPaciente.GetPacientesXFiltro(string filtro, string criterio) 
         {
             var pacientes = _appContext.Pacientes; 
-            if (pacientes != null) 
+            if (pacientes != null)
             {
-                if (!String.IsNullOrEmpty(filtro)) 
+                if (!String.IsNullOrEmpty(filtro))
                 {
                     if (criterio == "1")
                     {
@@ -97,7 +102,7 @@ namespace HospiEnCasa.App.Persistencia
             var pacienteEncontrado = _appContext.Pacientes.FirstOrDefault(p => p.Id == paciente.Id);
             if (pacienteEncontrado != null)
             {
-              pacienteEncontrado.Identificacion = paciente.Identificacion;
+                pacienteEncontrado.Identificacion = paciente.Identificacion;
                 pacienteEncontrado.Nombres = paciente.Nombres;
                 pacienteEncontrado.Apellidos = paciente.Apellidos;
                 pacienteEncontrado.NumeroTelefono = paciente.NumeroTelefono;
@@ -177,7 +182,7 @@ namespace HospiEnCasa.App.Persistencia
                 }
                 return historiaEncontrada;
             }
-            return null;            
+            return null;
         }
 
         public Paciente GetHistoriaPaciente(int idPaciente)
@@ -187,12 +192,14 @@ namespace HospiEnCasa.App.Persistencia
                 .Include(p => p.Historia)
                 .Include(p => p.Historia.Sugerencias)
                 .FirstOrDefault();
-
         }
 
-        public IEnumerable<Paciente> GetPacientesPorMedico(int idMedico)
+        public Paciente GetSignosVitalesPaciente(int idPaciente)
         {
-            return _appContext.Pacientes.Where(p => p.MedicoId == idMedico).ToList();
+            return _appContext.Pacientes
+                .Where(p => p.Id == idPaciente)
+                .Include(p => p.SignosVitales)
+                .FirstOrDefault();
         }
     }
 }

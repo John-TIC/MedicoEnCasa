@@ -11,6 +11,5 @@ namespace HospiEnCasa.App.Dominio
         [Required(ErrorMessage = "Ingrese un {0}")]
         [StringLength(20, MinimumLength = 3, ErrorMessage = "{0} debe tener entre {2} y {1} caracteres")]
         public string RegistroRethus {get; set;}
-  
     }
 }

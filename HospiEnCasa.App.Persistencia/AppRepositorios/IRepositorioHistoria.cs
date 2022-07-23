@@ -10,6 +10,7 @@ namespace HospiEnCasa.App.Persistencia
         void DeleteHistoria(int idHistoria);
         IEnumerable<Historia> GetAllHistoria();
         Historia GetHistoria(int idHistoria);
+        Historia GetHistoriaAndSugerencias(int idHistoria);
         Historia UpdateHistoria(Historia historia);
     }
 }
