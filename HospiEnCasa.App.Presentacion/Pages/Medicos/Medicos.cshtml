@@ -91,13 +91,13 @@
                 <td>@medico.Especialidad</td>
                 <td>
                   <a title="Ver" asp-area="" asp-page="/Medicos/Medico" asp-route-id="@medico.Id">
-                    <i class="fa-solid fa-eye icon-view mx-1" title="Ver"></i>
+                    <i class="fa-solid fa-eye icon-view mx-1"></i>
                   </a>
-                  <a href="#">
-                    <i class="fa-solid fa-pen-to-square icon-edit mx-1" title="Editar"></i>
+                  <a title="Editar" href="#">
+                    <i class="fa-solid fa-pen-to-square icon-edit mx-1" ></i>
                   </a>
-                  <a href="#">
-                    <i class="fa-solid fa-file-waveform icon-signal mx-1" title="Signos"></i>
+                  <a title="Pacientes" asp-area="" asp-page="/Medicos/PacientesMedico" asp-route-idMedico="@medico.Id">
+                    <i class="fa-solid fa-person-cane icon-signal mx-1"></i>
                   </a>
                 </td>
               </tr>

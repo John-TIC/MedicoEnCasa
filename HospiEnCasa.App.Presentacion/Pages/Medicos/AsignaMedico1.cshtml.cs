@@ -22,7 +22,7 @@ namespace HospiEnCasa.App.Presentacion.Pages.Medicos
 
         public ModalInfo ModalInfo {get; set; }
         private readonly IRepositorioMedico repositorioMedico;
-        private IRepositorioPaciente repositorioPaciente;
+        private readonly IRepositorioPaciente repositorioPaciente;
         public IEnumerable<Medico> Medicos { get; set; }
 
         public AsignaMedico1Model(IRepositorioMedico repositorioMedico, IRepositorioPaciente repositorioPaciente)

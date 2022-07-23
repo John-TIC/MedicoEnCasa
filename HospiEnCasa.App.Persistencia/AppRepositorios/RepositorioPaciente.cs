@@ -201,5 +201,14 @@ namespace HospiEnCasa.App.Persistencia
                 .Include(p => p.SignosVitales)
                 .FirstOrDefault();
         }
+
+        public Paciente GetHistoriaSugerenciaPaciente(int idPaciente, int idSugerencia)
+        {
+            return _appContext.Pacientes
+                .Where(p => p.Id == idPaciente)
+                .Include(p => p.Historia)
+                    .ThenInclude(h => h.Sugerencias)
+                .FirstOrDefault(p => p.Historia.Sugerencias.FirstOrDefault().Id == idSugerencia);
+        }
     }
 }

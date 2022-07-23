@@ -13,10 +13,12 @@
             <nav id="nav-second" class="navbar navbar-light bg-light">
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Medicos/Medicos"><i class="fas fa-list"></i> Listado</a>
+                        <a class="nav-link active" aria-current="page" asp-area="" asp-page="/Medicos/Medicos"><i
+                                class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-page="/Medicos/NuevoMedico" style="color: var(--hospital-green);"><i class="fas fa-user-plus"></i> Registrar</a>
+                        <a class="nav-link" asp-area="" asp-page="/Medicos/NuevoMedico"
+                            style="color: var(--hospital-green);"><i class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -43,57 +45,63 @@
                 <h1 class="title-section">Informacion Medico</h1>
                 <div class="row d-flex justify-content-lg-start align-items-center">
                     <div class="col-lg-6">
-                        <img src="~/avatar/johansson.png"
-                            class="col-lg-5 img-perfil"
-                            alt="..." />
+                        <img src="~/avatar/johansson.png" class="col-lg-5 img-perfil" alt="..." />
+                    </div>
+                    <div class="col-lg-6 d-flex flex-lg-column">
+                        <a title="Pacientes" class="navbar-brand icon-with-data" asp-area="" asp-page="/Medicos/PacientesMedico"
+                            asp-route-idMedico="@Model.Medico.Id">
+                            <i class="fa-solid fa-person-cane fa-xl"></i>
+                            <span>Pacientes</span>
+                        </a>
                     </div>
                 </div>
 
-                <a asp-area="" asp-page="/Medicos/PacientesMedico" asp-route-idMedico="@Model.Medico.Id">Ir a mis pacientes</a>
-                <form class="">
-                    <fieldset class="row g-3 py-3">
-                        <div class="col-lg-6">
-                            <label asp-for="Medico.Identificacion" class="form-label">Identificacion</label>
-                            <input asp-for="Medico.Identificacion" class="form-control" readonly />
-                        </div>
-                        <div class="col-lg-6"></div>
-                        <div class="col-lg-6">
-                            <label asp-for="Medico.Nombres" class="form-label">Nombres</label>
-                            <input asp-for="Medico.Nombres" class="form-control" readonly />
-                        </div>
-                        <div class="col-lg-6">
-                            <label asp-for="Medico.Apellidos" class="form-label">Apellidos</label>
-                            <input asp-for="Medico.Apellidos" class="form-control" readonly />
-                        </div>
-                        <div class="col-lg-6">
-                            <label asp-for="Medico.NumeroTelefono" class="form-label">Telefono</label>
-                            <input asp-for="Medico.NumeroTelefono" type="tel" class="form-control" readonly />
-                        </div>
-                        <div class="col-lg-6">
-                            <label asp-for="Medico.Genero" class="form-label">Genero</label>
-                            <select asp-for="Medico.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()" disabled>
-                            </select>
-                        </div>
-                    </fieldset>
-                    <fieldset class="row g-3 py-3">
-                        <div class="col-12">
-                            <label asp-for="Medico.Especialidad" class="form-label">Especialidad</label>
-                            <input asp-for="Medico.Especialidad" class="form-control" readonly />
-                        </div>
-                        <div class="col-lg-3">
-                            <label asp-for="Medico.RegistroRethus" class="form-label">Registro Rethus</label>
-                            <input asp-for="Medico.RegistroRethus" class="form-control" readonly />
-                        </div>
-                    </fieldset>
-                    <div class="d-flex justify-content-end py-3">
-                        <button type="submit" class="btn btn-primary disabled">Editar</button>
-                    </div>
-                </form>
             </div>
-            <!-- End Title and form search section -->
-        </section>
-        <!-- Start Content section -->
-    </main>
-    <!-- End Main section -->
+            <form class="">
+                <fieldset class="row g-3 py-3">
+                    <div class="col-lg-6">
+                        <label asp-for="Medico.Identificacion" class="form-label">Identificacion</label>
+                        <input asp-for="Medico.Identificacion" class="form-control" readonly />
+                    </div>
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                        <label asp-for="Medico.Nombres" class="form-label">Nombres</label>
+                        <input asp-for="Medico.Nombres" class="form-control" readonly />
+                    </div>
+                    <div class="col-lg-6">
+                        <label asp-for="Medico.Apellidos" class="form-label">Apellidos</label>
+                        <input asp-for="Medico.Apellidos" class="form-control" readonly />
+                    </div>
+                    <div class="col-lg-6">
+                        <label asp-for="Medico.NumeroTelefono" class="form-label">Telefono</label>
+                        <input asp-for="Medico.NumeroTelefono" type="tel" class="form-control" readonly />
+                    </div>
+                    <div class="col-lg-6">
+                        <label asp-for="Medico.Genero" class="form-label">Genero</label>
+                        <select asp-for="Medico.Genero" class="form-select" asp-items="Html.GetEnumSelectList<Genero>()"
+                            disabled>
+                        </select>
+                    </div>
+                </fieldset>
+                <fieldset class="row g-3 py-3">
+                    <div class="col-12">
+                        <label asp-for="Medico.Especialidad" class="form-label">Especialidad</label>
+                        <input asp-for="Medico.Especialidad" class="form-control" readonly />
+                    </div>
+                    <div class="col-lg-3">
+                        <label asp-for="Medico.RegistroRethus" class="form-label">Registro Rethus</label>
+                        <input asp-for="Medico.RegistroRethus" class="form-control" readonly />
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-end py-3">
+                    <button type="submit" class="btn btn-primary disabled">Editar</button>
+                </div>
+            </form>
+</div>
+<!-- End Title and form search section -->
+</section>
+<!-- Start Content section -->
+</main>
+<!-- End Main section -->
 </div>
 <!-- End Ppal Sections -->

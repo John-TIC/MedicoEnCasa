@@ -155,7 +155,7 @@
                     <th>Valor Signo Vital</th>
                 </thead>
                 <tbody>
-                    @if (Model.Paciente.SignosVitales == null)
+                    @if (Model.Paciente.SignosVitales == null || Model.Paciente.SignosVitales.Count == 0)
                     {
                         <tr>
                             <td colspan="4" class="table-active">
