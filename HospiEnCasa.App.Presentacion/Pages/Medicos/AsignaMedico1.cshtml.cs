@@ -18,16 +18,12 @@ namespace HospiEnCasa.App.Presentacion.Pages.Medicos
 
         [BindProperty]
         public Medico Medico {get; set;}
-        public int IdPaciente { get; set; }
         public bool EstaAsignadoMedico { get; set; }
 
         public ModalInfo ModalInfo {get; set; }
         private readonly IRepositorioMedico repositorioMedico;
         private IRepositorioPaciente repositorioPaciente;
         public IEnumerable<Medico> Medicos { get; set; }
-
-        [TempData]
-        public string Mensaje { get;set;}
 
         public AsignaMedico1Model(IRepositorioMedico repositorioMedico, IRepositorioPaciente repositorioPaciente)
         {
@@ -36,13 +32,12 @@ namespace HospiEnCasa.App.Presentacion.Pages.Medicos
         }
         public IActionResult OnGet(string filtroB, string criterio, int idPaciente)
         {
-            Paciente paciente = repositorioPaciente.GetPaciente(idPaciente);
+            Paciente = repositorioPaciente.GetPaciente(idPaciente);
 
-            if (paciente == null)
+            if (Paciente == null)
                 return RedirectToPage("Error");
 
-            ViewData["pacienteAAsignar"] = paciente.Identificacion + " : " + paciente.Nombres + " " + paciente.Apellidos;
-            IdPaciente = paciente.Id;
+            ViewData["pacienteAAsignar"] = Paciente.Identificacion + " : " + Paciente.Nombres + " " + Paciente.Apellidos;
 
             Medicos = repositorioMedico.GetMedicosXFiltro(filtroB, criterio);
 
@@ -52,7 +47,7 @@ namespace HospiEnCasa.App.Presentacion.Pages.Medicos
             return Page();
         }
 
-        public IActionResult OnPut(int idPaciente)
+        public IActionResult OnGetAsignarMedico(int idPaciente, int idMedico)
         {
             EstaAsignadoMedico = false;
             if (!ModelState.IsValid)
@@ -60,21 +55,22 @@ namespace HospiEnCasa.App.Presentacion.Pages.Medicos
                 return Page();
             }
 
-            if (Medico.Id > 0)
+            if (idMedico > 0)
             {
-                Paciente paciente = repositorioPaciente.GetPaciente(idPaciente);
-                paciente.MedicoId = Medico.Id;
-                Paciente = repositorioPaciente.UpdatePaciente(paciente);
+                Paciente = repositorioPaciente.GetPaciente(idPaciente);
+                Paciente.MedicoId = idMedico;
+                Paciente = repositorioPaciente.UpdatePaciente(Paciente);
             }
 
             ModalInfo = new ModalInfo{
                 TitleModal = "Médico Asignado",
-                MsgModal = "El Médico " + Medico.Nombres + " " + Medico.Especialidad + " fue asignado correctamente",
+                MsgModal = "El Médico para el paciente " + Paciente.Nombres + " " + Paciente.Apellidos + " fue asignado correctamente",
                 PageRedirect = "/Pacientes/Pacientes"
             };
-            EstaAsignadoMedico = false;
-            Mensaje = "El Médico fue asignado correctamente";
-            return RedirectToPage("/Pacientes/Pacientes/Paciente");
+
+            EstaAsignadoMedico = true;
+
+            return Page();
         }
 
     }

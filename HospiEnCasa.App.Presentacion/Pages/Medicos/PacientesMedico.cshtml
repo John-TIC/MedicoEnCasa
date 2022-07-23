@@ -13,10 +13,12 @@
                 <ul class="nav flex-lg-column">
                     <li class="nav-item">
                         <a class="nav-link active disabled" aria-current="page" asp-area=""
-                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i class="fas fa-list"></i> Listado</a>
+                            asp-page="/Pacientes/Pacientes" style="color: var(--hospital-green);"><i
+                                class="fas fa-list"></i> Listado</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i class="fas fa-user-plus"></i> Registrar</a>
+                        <a class="nav-link disabled" asp-area="" asp-page="/Pacientes/NuevoPaciente"><i
+                                class="fas fa-user-plus"></i> Registrar</a>
                     </li>
                 </ul>
             </nav>
@@ -30,7 +32,8 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
                 <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos">Medicos</a></li>
-                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos/Medico" asp-route-id="@Model.Medico.Id">Medico</a></li>
+                <li class="breadcrumb-item"><a asp-area="" asp-page="/Medicos/Medicos/Medico"
+                        asp-route-id="@Model.Medico.Id">Medico</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
                     Pacientes Medico
                 </li>
@@ -128,7 +131,14 @@
                                 <td>@pacienteMedico.Apellidos</td>
                                 <td>@pacienteMedico.NumeroTelefono</td>
                                 <td>@pacienteMedico.Direccion</td>
-                                <td>@pacienteMedico.Historia.Diagnostico</td>
+
+                                @if (pacienteMedico.Historia == null)
+                                {
+                                    <td>Pendiente</td>
+                                }else{
+                                    <td>@pacienteMedico.Historia.Diagnostico</td>
+                                }
+
                                 <td>
                                     <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@pacienteMedico.Id">
                                         <i class="fa-solid fa-eye icon-view mx-1"></i>

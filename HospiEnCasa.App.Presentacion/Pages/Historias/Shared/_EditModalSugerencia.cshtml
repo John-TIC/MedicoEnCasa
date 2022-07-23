@@ -1,0 +1,27 @@
+@model HospiEnCasa.App.Dominio.SugerenciaCuidado
+
+<!-- Form del Modal -->
+<form id="form-modal-update" class="" method="post" asp-area="" asp-page="/Historias/Index" asp-page-handler="UpdateSugerenciaModal"
+    asp-route-idPaciente="8" asp-route-idSugerencia="@Model.Id">
+    <div class="mb-3">
+        <label asp-for="@Model.FechaHora" class="sr-only">Fecha y Hora
+            Sugerencia</label>
+        <input asp-for="@Model.FechaHora" class="form-control">
+        <span asp-validation-for="@Model.FechaHora" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.Descripcion" class="sr-only">Descripcion
+            Sugerencia</label>
+        <input asp-for="@Model.Descripcion" class="form-control" placeholder="Descripcion"></textarea>
+        <span asp-validation-for="@Model.Descripcion" class="text-danger"></span>
+    </div>
+</form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Close
+    </button>
+    <button type="submit" class="btn btn-primary" form="form-modal-update">
+        Actualizar
+    </button>
+</div>

@@ -1,4 +1,4 @@
-﻿@page "{idPaciente:int}"
+﻿@page "{idPaciente:int}/{handler?}"
 @model HospiEnCasa.App.Presentacion.Pages.Medicos.AsignaMedico1Model
 @{
     ViewData["Title"] = "Médicos Habilitados";
@@ -105,7 +105,7 @@
                                 <td>@medico.Especialidad</td>
                                 <td>@medico.RegistroRethus</td>
                                 <td>
-                                    <a title="Asignar" asp-area="" asp-route-id="@medico.Id" action="/update" method="put" type="submit" style="color: var(--hospital-green);">
+                                    <a title="Asignar" asp-route-idPaciente="@Model.Paciente.Id" asp-route-idMedico="@medico.Id" asp-page-handler="AsignarMedico">
                                         <i class="fas fa-check-circle"></i>
                                     </a>
                                 </td>
@@ -144,15 +144,5 @@
   @section ScriptModal{
     <partial name="_ModalViewScript" />
   }
-}
-
-@if (@Model.Mensaje != null)
-{
-    <div class="alert alert-info alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="close">
-            <span  aria-hidden="true">&times;</span>
-        </button>
-        @Model.Mensaje
-    </div>
 }
 <!-- End Modal-->

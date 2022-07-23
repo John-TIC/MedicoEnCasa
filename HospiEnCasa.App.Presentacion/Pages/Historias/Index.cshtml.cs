@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 using HospiEnCasa.App.Presentacion.Model;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace HospiEnCasa.App.Presentacion.Pages.Historias
 {
@@ -17,16 +18,20 @@ namespace HospiEnCasa.App.Presentacion.Pages.Historias
         public Paciente Paciente { get; set; }
 
         [BindProperty]
-        public SugerenciaCuidado NuevaSugerenciaCuidado { get; set; }
+        public SugerenciaCuidado SugerenciaCuidado { get; set; }
+
+        private readonly IMemoryCache cache;
 
         private readonly IRepositorioPaciente repositorioPaciente;
+        private readonly IRepositorioSugerenciaCuidado repositorioSugerenciaCuidado;
 
-        public bool IsCreateSugerencia { get; set; }
         public ModalInfo ModalInfo { get; set; }
 
-        public IndexModel(IRepositorioPaciente repositorioPaciente)
+        public IndexModel(IRepositorioPaciente repositorioPaciente, IRepositorioSugerenciaCuidado repositorioSugerenciaCuidado, IMemoryCache cache)
         {
             this.repositorioPaciente = repositorioPaciente;
+            this.repositorioSugerenciaCuidado = repositorioSugerenciaCuidado;
+            this.cache = cache;
         }
 
         public IActionResult OnGet(int idPaciente)
@@ -36,13 +41,13 @@ namespace HospiEnCasa.App.Presentacion.Pages.Historias
             if (Paciente == null)
                 return RedirectToPage("Error");
 
+            cache.Set("pacienteFull", Paciente);
+
             return Page();
         }
 
         public IActionResult OnPost(int idPaciente)
         {
-            IsCreateSugerencia = false;
-
             Paciente = repositorioPaciente.GetHistoriaPaciente(idPaciente);
 
             if (Paciente == null)
@@ -51,12 +56,14 @@ namespace HospiEnCasa.App.Presentacion.Pages.Historias
             if (!ModelState.IsValid)
                 return Page();
 
-            Paciente.Historia.Sugerencias.Add(NuevaSugerenciaCuidado);
+            Paciente.Historia.Sugerencias.Add(SugerenciaCuidado);
 
             Paciente = repositorioPaciente.UpdatePaciente(Paciente);
 
             if (Paciente == null)
                 return RedirectToPage("Error");
+
+            cache.Set("pacienteFull", Paciente);
 
             ModalInfo = new ModalInfo
             {
@@ -65,10 +72,38 @@ namespace HospiEnCasa.App.Presentacion.Pages.Historias
                 PageRedirect = "/Historias/" + Paciente.HistoriaId.ToString()
             };
 
-            IsCreateSugerencia = true;
+            ViewData["IsCreateSugerencia"] = true;
 
             return Page();
         }
 
+        public IActionResult OnGetSugerenciaModal(int idPaciente, int idSugerencia)
+        {
+            if (idPaciente == 0)
+                return RedirectToPage("/Pacientes/Pacientes");
+
+            if (idSugerencia == 0)
+                return RedirectToPage(idPaciente);
+
+            SugerenciaCuidado = repositorioSugerenciaCuidado.GetSugerenciaCuidado(idSugerencia);
+            return Partial("Historias/Shared/_EditModalSugerencia", SugerenciaCuidado);
+        }
+
+        public IActionResult OnPostUpdateSugerenciaModal(int idPaciente, int idSugerencia)
+        {
+            if (idPaciente == 0)
+                return RedirectToPage("/Pacientes/Pacientes");
+
+            if (idSugerencia == 0)
+                return RedirectToPage(idPaciente);
+                
+            if (!ModelState.IsValid)
+                return Page();
+
+            SugerenciaCuidado.Id = idSugerencia;
+            repositorioSugerenciaCuidado.UpdateSugerenciaCuidado(SugerenciaCuidado);
+
+            return RedirectToPage(idPaciente);
+        }
     }
 }

@@ -1,4 +1,4 @@
-@page "{idPaciente:int}"
+@page "{idPaciente:int}/{handler?}"
 @model HospiEnCasa.App.Presentacion.Pages.Historias.IndexModel
 @{
   ViewData["Title"] = "Historia";
@@ -66,7 +66,7 @@
           <fieldset class="row g-3 py-3">
             <legend class="">Informacion Historia</legend>
             <div class="col-lg-3">
-              <label asp-for="Paciente.Historia.Diagnostico" class="form-label">Diagnostico</label>
+              <label asp-for="Paciente.Historia.Diagnostico" class="form-label">Diagnostico Actual</label>
               <input asp-for="Paciente.Historia.Diagnostico" class="form-control" readonly />
             </div>
             <div class="col-lg-3">
@@ -79,7 +79,7 @@
       <!-- End Title and form Paciente and Historia basic information section -->
 
       <hr>
-
+      
       <!-- Start Title, new form Sugerencia Cuidado and form search section -->
       <div class="container-fluid pb5">
         <h1 class="title-section pb-3">Listado Sugerencias Cuidado</h1>
@@ -91,17 +91,17 @@
                 <legend>Nueva Sugerencia</legend>
                 <div class="row pt-2">
                   <div class="col-lg-3">
-                    <label asp-for="NuevaSugerenciaCuidado.FechaHora" class="sr-only">Fecha y Hora
+                    <label asp-for="SugerenciaCuidado.FechaHora" class="sr-only">Fecha y Hora
                       Sugerencia</label>
-                    <input asp-for="NuevaSugerenciaCuidado.FechaHora" class="form-control">
-                    <span asp-validation-for="NuevaSugerenciaCuidado.FechaHora" class="text-danger"></span>
+                    <input asp-for="SugerenciaCuidado.FechaHora" class="form-control">
+                    <span asp-validation-for="SugerenciaCuidado.FechaHora" class="text-danger"></span>
                   </div>
                   <div class="col-lg-7">
-                    <label asp-for="NuevaSugerenciaCuidado.Descripcion" class="sr-only">Descripcion
+                    <label asp-for="SugerenciaCuidado.Descripcion" class="sr-only">Descripcion
                       Sugerencia</label>
-                    <input asp-for="NuevaSugerenciaCuidado.Descripcion" class="form-control"
+                    <input asp-for="SugerenciaCuidado.Descripcion" class="form-control"
                       placeholder="Descripcion"></textarea>
-                    <span asp-validation-for="NuevaSugerenciaCuidado.Descripcion" class="text-danger"></span>
+                    <span asp-validation-for="SugerenciaCuidado.Descripcion" class="text-danger"></span>
                   </div>
                   <div class="col-lg-2">
                     <button type="submit" class="btn btn-primary">Registrar</button>
@@ -175,7 +175,7 @@
                 <td>@sugerencia.FechaHora</td>
                 <td>@sugerencia.Descripcion</td>
                 <td>
-                  <a href="#">
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#myModalEdit" data-id1="@Model.Paciente.Id" data-id2="@sugerencia.Id" class="details">
                     <i class="fa-solid fa-pen-to-square icon-edit mx-1" title="Editar"></i>
                   </a>
                 </td>
@@ -207,12 +207,28 @@
 </div>
 <!-- End Ppal Sections -->
 
-<!-- Start Modal-->
-@if (@Model.IsCreateSugerencia)
+<!-- Start Modal IsCreate-->
+@if (ViewBag.IsCreateSugerencia != null)
 {
   <partial name="_ModalView" for="ModalInfo" />
   @section ScriptModal{
-<partial name="_ModalViewScript" />
+    <partial name="_ModalViewScript" />
+  }
+
 }
+<!-- End Modal IsCreate-->
+
+
+<!-- Start Modal IsUpdate-->
+<partial name="_ModalLayoutForm" />
+@section Scripts{
+    <script>
+        $(function () {
+            $('a.details').on('click', function () {
+              console.log("clic");
+                $('.modal-body').load(`/Historias/${$(this).data('id1')}/SugerenciaModal?idSugerencia=${$(this).data('id2')}`);
+            });
+        })
+    </script>
 }
-<!-- End Modal-->
+<!-- End Modal IsUpdate-->
