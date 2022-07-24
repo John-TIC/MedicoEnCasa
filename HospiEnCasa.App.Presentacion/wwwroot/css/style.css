@@ -55,14 +55,20 @@ body{
 
 .icon-view{
     color: var(--red-flor);
+    font-size: medium;
 }
 
 .icon-edit{
-    color: var(--blue-flor);
+    color: var(--green-flor);
+    font-size: medium;
 }
-
+.icon-History{
+    color: var(--green-flor);
+    font-size: medium;
+}
 .icon-signal{
     color: var(--green-flor);
+    font-size: medium;
 }
 
 .name-app{

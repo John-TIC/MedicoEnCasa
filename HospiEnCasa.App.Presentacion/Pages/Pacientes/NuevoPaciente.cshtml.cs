@@ -44,6 +44,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
 
         public IActionResult OnPost()
         {
+
             IsCreatePaciente = false;
 
             if (!ModelState.IsValid)

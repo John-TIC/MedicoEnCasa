@@ -93,16 +93,19 @@
                                 <td>@paciente.Direccion</td>
                                 <td>
                                     <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@paciente.Id">
-                                        <i class="fa-solid fa-eye icon-view mx-1"></i>
+                                        <i class="fa-solid fa-eye icon-view mx-2"></i>
                                     </a>
-                                    <a  title="Editar" href="#">
-                                        <i class="fa-solid fa-pen-to-square icon-edit mx-1"></i>
+                                
+                                    <a  title="Editar" asp-page="/Pacientes/Paciente" asp-route-id="@paciente.Id">
+                                        <i class="fa-solid fa-pen-to-square icon-edit mx-2"></i>
                                     </a>
                                     <a title="Historia" asp-area="" asp-page="/Historias/Index" asp-route-idPaciente="@paciente.Id">
-                                        <i class="fa-solid fa-clipboard-user icon-signal mx-1" ></i>
+                                        <i class="fa-solid fa-book-medical icon-History mx-2" ></i>
+                                       
+                                        
                                     </a>
                                     <a title="Signos" asp-area="" asp-page="/SignosVitales/SignosVitales" asp-route-idPaciente="@paciente.Id">
-                                        <i class="fa-solid fa-file-waveform icon-signal mx-1" ></i>
+                                        <i class="fa-solid fa-file-waveform icon-signal mx-2" ></i>
                                     </a>
                                 </td>
                             </tr>
