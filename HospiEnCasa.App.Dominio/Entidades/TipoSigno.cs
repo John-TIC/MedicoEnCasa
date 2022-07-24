@@ -7,6 +7,5 @@ namespace HospiEnCasa.App.Dominio
         FrecuenciaRespiratoria,
         SaturacionOxigeno,
         TemperaturaCorporal
-
     }
 }

@@ -48,7 +48,7 @@ namespace HospiEnCasa.App.Persistencia
 
         IEnumerable<Paciente> IRepositorioPaciente.GetPacientesXFiltro(string filtro, string criterio) 
         {
-            var pacientes = _appContext.Pacientes; 
+            var pacientes = _appContext.Pacientes;
             if (pacientes != null)
             {
                 if (!String.IsNullOrEmpty(filtro))
@@ -76,7 +76,7 @@ namespace HospiEnCasa.App.Persistencia
                 else return pacientes;
             }
             else return pacientes;
-        } 
+        }
 
         // public IEnumerable<Paciente> GetPacientesPorFiltro(string filtro)
         // {
