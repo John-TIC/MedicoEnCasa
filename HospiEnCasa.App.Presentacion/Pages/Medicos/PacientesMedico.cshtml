@@ -143,11 +143,11 @@
                                     <a title="Ver" asp-area="" asp-page="/Pacientes/Paciente" asp-route-id="@pacienteMedico.Id">
                                         <i class="fa-solid fa-eye icon-view mx-1"></i>
                                     </a>
-                                    <a title="Historia" asp-area="" asp-page="/Historias"
+                                    <a title="Historia" asp-area="" asp-page="/Historias/Index"
                                 asp-route-idPaciente="@pacienteMedico.Id">
                                         <i class="fa-solid fa-file-medical icon-signal mx-1"></i>
                                     </a>
-                                    <a title="Signos" href="#">
+                                    <a title="Signos" asp-area="" asp-page="/SignosVitales/SignosVitales" asp-route-idPaciente="@pacienteMedico.Id">
                                         <i class="fa-solid fa-file-waveform icon-signal mx-1"></i>
                                     </a>
                                 </td>

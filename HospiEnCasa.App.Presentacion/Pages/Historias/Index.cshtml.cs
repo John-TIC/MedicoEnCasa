@@ -56,6 +56,10 @@ namespace HospiEnCasa.App.Presentacion.Pages.Historias
             if (!ModelState.IsValid)
                 return Page();
 
+            if (Paciente.Historia == null)
+                return RedirectToPage("/Pacientes/Paciente", new { id = idPaciente });
+
+
             Paciente.Historia.Sugerencias.Add(SugerenciaCuidado);
 
             Paciente = repositorioPaciente.UpdatePaciente(Paciente);
@@ -96,7 +100,7 @@ namespace HospiEnCasa.App.Presentacion.Pages.Historias
 
             if (idSugerencia == 0)
                 return RedirectToPage(idPaciente);
-                
+
             if (!ModelState.IsValid)
                 return Page();
 
