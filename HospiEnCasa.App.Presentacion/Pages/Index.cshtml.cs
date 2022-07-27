@@ -4,13 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Authorization;
 
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 using HospiEnCasa.App.Presentacion.Model;
 
+
 namespace HospiEnCasa.App.Presentacion.Pages
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         public IEnumerable<Paciente> Pacientes { get; set; }

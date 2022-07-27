@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+</head>
+<!-- Start Body section -->
+<body>
+    <!-- Start Header sections -->
+    <header class="p-0 mb-3 border-bottom bg-light fixed-top">
+        <!-- Header, Nav sections -->
+        <nav id="nav-ppal" class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <i class="fa-solid fa-truck-medical fa-lg logo"></i>
+                    <span class="name-app">Medico en Casa</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <!-- End Header sections -->
+
+    <div class="container mt-5">
+        <main role="main" class="pt-5">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Start Footer section -->
+    <div class="container-fluid footer">
+        <footer class="d-flex justify-content-between align-items-center py-3 px-3 border-top">
+            <p class="col-md-4 mb-0 text-muted">&copy; 2022 Medical ACME, Inc</p>
+
+            <a href="#"
+               class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <i class="fa-solid fa-truck-medical fa-xl logo"></i>
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-muted">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-muted">About</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <!-- End Footer section -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @RenderSection("ScriptMap", required: false);
+    @RenderSection("ScriptModal", required: false)
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

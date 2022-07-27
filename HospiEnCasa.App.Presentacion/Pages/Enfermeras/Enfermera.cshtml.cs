@@ -8,9 +8,11 @@ using Microsoft.Extensions.Logging;
 
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
+    [Authorize]
     public class EnfermeraModel : PageModel
     {
         [BindProperty]
