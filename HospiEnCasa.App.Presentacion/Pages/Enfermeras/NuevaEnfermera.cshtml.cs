@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 using HospiEnCasa.App.Presentacion.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
+    [Authorize]
     public class NuevaEnfermeraModel : PageModel
     {
         [BindProperty]

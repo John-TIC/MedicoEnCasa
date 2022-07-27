@@ -9,9 +9,11 @@ using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 using HospiEnCasa.App.Presentacion.Model;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospiEnCasa.App.Presentacion.Pages.Historias
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
 

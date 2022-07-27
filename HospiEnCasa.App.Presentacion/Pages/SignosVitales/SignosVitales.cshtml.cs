@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 using HospiEnCasa.App.Presentacion.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospiEnCasa.App.Presentacion.Pages.SignosVitales
 {
+    [Authorize]
     public class SignosVitalesModel : PageModel
     {
         public Paciente Paciente {get; set;}

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
+    [Authorize]
     public class MedicosModel : PageModel
     {
         private readonly IRepositorioMedico repositorioMedico;
