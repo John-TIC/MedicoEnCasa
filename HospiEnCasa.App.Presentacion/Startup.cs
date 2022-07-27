@@ -27,6 +27,8 @@ namespace HospiEnCasa.App.Presentacion
         {
             services.AddRazorPages();
 
+            services.AddControllersWithViews();
+
             // Servicio IRespositorioPaciente 
             // services.AddSingleton<IRepositorioPaciente>(new RepositorioPaciente(new HospiEnCasa.App.Persistencia.AppContext()));
             // Servicio IRespositorioFamiliarDesignado
@@ -62,6 +64,7 @@ namespace HospiEnCasa.App.Presentacion
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => endpoints.MapRazorPages());
