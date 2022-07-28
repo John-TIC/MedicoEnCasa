@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async (e) => {
   }).addTo(mymap);
 
   var myIcon1 = L.icon({
-    iconUrl: "~/../icon/heart-beat.png",
+    iconUrl: "../icon/heart-beat.png",
     iconSize: [38, 38],
     iconAnchor: [38, 38],
     popupAnchor: [-10, -38],

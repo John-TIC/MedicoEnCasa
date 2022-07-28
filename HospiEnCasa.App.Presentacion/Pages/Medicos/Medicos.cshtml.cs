@@ -21,6 +21,7 @@ namespace HospiEnCasa.App.Presentacion.Pages
         {
             this.repositorioMedico = repositorioMedico;
         }
+
         public IActionResult OnGet()
         {
             Medicos = repositorioMedico.GetAllMedicos();
