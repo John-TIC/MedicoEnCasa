@@ -4,43 +4,49 @@ let heightShow = 5;
 
 // Funciona pra capturar las coordenadas actuales
 function InitLocations() {
-  if (!navigator.geolocation) {
-    return alert("Tu navegador no soporta el acceso a la ubicacion");
-  }
-
-  function onPosition(ubication) {
-    console.log("Ubication is: ", ubication);
-    latitud = ubication.coords.latitude;
-    longitud = ubication.coords.longitude;
-    heightShow = 12;
-  }
-
-  function onPositionError(error) {
-    console.log("Ubication error is: ", error);
-  }
-
-  const optionsPositions = {
-    enableHighAccuracy: true, // Alta precision
-    maximunAge: 0, // No cache
-    timeout: 5000, // Espera 5 segundos
-  };
-
-  navigator.geolocation.getCurrentPosition(
-    onPosition,
-    onPositionError,
-    optionsPositions
-  );
 
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve();
-    }, 2000)
-  });
+    if (!navigator.geolocation) {
+      alert("Tu navegador no soporta el acceso a la ubicacion");
+      resolve(true);
+    }
+
+    function onPosition(ubication) {
+      console.log("Ubication is: ", ubication);
+      latitud = ubication.coords.latitude;
+      longitud = ubication.coords.longitude;
+      heightShow = 10;
+      resolve(true);
+    }
+
+    function onPositionError(error) {
+//      console.log("Ubication error is: ", error);
+      reject(error);
+    }
+
+    const optionsPositions = {
+      enableHighAccuracy: false, // baja precision
+      maximunAge: 0, // No cache
+      timeout: 10000, // Espera 5 segundos
+    };
+
+    navigator.geolocation.getCurrentPosition(
+      onPosition,
+      onPositionError,
+      optionsPositions
+    );
+  })
 }
 
 //Carga mapa cuando carga el DOM
 document.addEventListener("DOMContentLoaded", async (e) => {
-  await InitLocations();
+
+  try {
+    await InitLocations();
+  } catch (error) {
+    console.error("Error geolocalizacion: ", error);
+  }
+
 
   let mymap = L.map("mimapa").setView([latitud, longitud], heightShow);
 
