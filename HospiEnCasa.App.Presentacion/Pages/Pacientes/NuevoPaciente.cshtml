@@ -43,12 +43,13 @@
       <!-- Start Title and form search section -->
       <div class="container pb-4">
         <h1 class="title-section">Nuevo Paciente</h1>
-        <form class="" method="post">
+        <form class="" method="post" enctype="multipart/form-data">
           <fieldset class="row g-3 py-3">
             <legend class="">Informacion Personal</legend>
             <div class="col-lg-6">
-              <label for="inputAvatar" class="form-label">Ingrese fotografia</label>
-              <input class="form-control" type="file" id="inputAvatar">
+              <label asp-for="Avatar.FormFile" class="form-label">Ingrese fotografia</label>
+              <input asp-for="Avatar.FormFile" type="file" class="form-control">
+              <span asp-validation-for="Avatar.FormFile" class="text-danger"></span>
             </div>
             <div class="col-lg-6">
               <label asp-for="Paciente.Identificacion" class="form-label">Identificacion</label>

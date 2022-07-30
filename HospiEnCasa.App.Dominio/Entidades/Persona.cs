@@ -7,6 +7,8 @@ namespace HospiEnCasa.App.Dominio
     {
         public int Id { get; set; }
 
+        public byte[] Avatar { get; set;}
+
         [Required(ErrorMessage = "Ingrese una {0}")]
         [StringLength(10, MinimumLength =6, ErrorMessage = "{0} debe tener entre {2} y {1} caracteres")]
         public string Identificacion {get; set;}

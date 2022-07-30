@@ -29,20 +29,12 @@ namespace HospiEnCasa.App.Presentacion
 
             services.AddControllersWithViews();
 
-            // Servicio IRespositorioPaciente 
-            // services.AddSingleton<IRepositorioPaciente>(new RepositorioPaciente(new HospiEnCasa.App.Persistencia.AppContext()));
-            // Servicio IRespositorioFamiliarDesignado
-            // services.AddSingleton<IRepositorioFamiliarDesignado>(new RepositorioFamiliarDesignado(new HospiEnCasa.App.Persistencia.AppContext()));
-
-            services.AddScoped<IRepositorioPaciente>((IServiceProvider sp) => new RepositorioPaciente(new Persistencia.AppContext()));
-
-            services.AddScoped<IRepositorioFamiliarDesignado>((IServiceProvider sp) => new RepositorioFamiliarDesignado(new Persistencia.AppContext()));
-
-            services.AddScoped<IRepositorioMedico>((IServiceProvider sp) => new RepositorioMedico(new Persistencia.AppContext()));
-
-            services.AddScoped<IRepositorioEnfermera>((IServiceProvider sp) => new RepositorioEnfermera(new Persistencia.AppContext()));
-
-            services.AddScoped<IRepositorioSugerenciaCuidado>((IServiceProvider sp) => new RepositorioSugerenciaCuidado(new Persistencia.AppContext()));
+            services.AddDbContext<Persistencia.AppContext>();
+            services.AddScoped<IRepositorioPaciente, RepositorioPaciente>();
+            services.AddScoped<IRepositorioFamiliarDesignado, RepositorioFamiliarDesignado>();
+            services.AddScoped<IRepositorioMedico, RepositorioMedico>();
+            services.AddScoped<IRepositorioEnfermera, RepositorioEnfermera>();
+            services.AddScoped<IRepositorioSugerenciaCuidado, RepositorioSugerenciaCuidado>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

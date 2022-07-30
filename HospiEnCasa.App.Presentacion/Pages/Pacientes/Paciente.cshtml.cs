@@ -9,6 +9,7 @@ using HospiEnCasa.App.Dominio;
 using HospiEnCasa.App.Persistencia;
 using HospiEnCasa.App.Presentacion.Model;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
 
 namespace HospiEnCasa.App.Presentacion.Pages
 {
@@ -35,6 +36,14 @@ namespace HospiEnCasa.App.Presentacion.Pages
                 return RedirectToPage("Error");
 
             ViewData["idPaciente"] = id;
+
+            if(Paciente.Avatar != null){
+                string avatar_64 = Convert.ToBase64String(Paciente.Avatar);
+                ViewData["avatarLocation"] = $"data:image/png;base64, {avatar_64}";
+            }else
+            {
+                ViewData["avatarLocation"] = "/avatar/default.png";
+            }
 
             return Page();
         }

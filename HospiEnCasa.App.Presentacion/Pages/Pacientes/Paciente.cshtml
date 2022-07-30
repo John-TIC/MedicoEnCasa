@@ -44,7 +44,7 @@
                 <h1 class="title-section">Informacion Paciente</h1>
                 <div class="row d-flex justify-content-lg-start align-items-center">
                     <div class="col-lg-6">
-                        <img src="~/avatar/johansson.png" class="col-lg-5 img-perfil" alt="..." />
+                        <img src="@ViewBag.avatarLocation" class="col-lg-5 img-perfil" alt="Paciente.Nombres" />
                     </div>
                     <div class="col-lg-6 d-flex flex-lg-column">
                         @if (@Model.Paciente.MedicoId == null)
